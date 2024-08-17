@@ -1,13 +1,13 @@
 
 <template>
-    <nav class="p-4 inline-flex items-center justify-between w-full">
-        <a href="/"><img src="../public/logos/logo-big-min.png" alt="Logo" class="h-32 w-auto"></a>
-        <div class="bg-white rounded-full py-2 px-6 inline-flex items-center highlight space-x-6">
+    <nav class="py-2 2xl:py-8 inline-flex items-center justify-between w-full">
+        <a href="/"><img src="../public/logos/logo-big-min.png" alt="Logo" class="h-32 2xl:h-36 w-auto"></a>
+        <div class="bg-white rounded-full py-1 px-6 inline-flex items-center highlight space-x-2 2xl:space-x-6">
             <ul class="flex justify-between divide-x">
-                <li><a href="#">Updates</a></li>
-                <li><a href="#">Roadmap</a></li>
-                <li><a href="#">Press</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#" class="text-sm 2xl:text-base">Updates</a></li>
+                <li><a href="#" class="text-sm 2xl:text-base">Roadmap</a></li>
+                <li><a href="#" class="text-sm 2xl:text-base">Press</a></li>
+                <li><a href="#" class="text-sm 2xl:text-base">Contact</a></li>
             </ul>
             <ul class="flex justify-between py-4 px-6 media">
                 <li><a href="#"><Icon name="ic:baseline-tiktok" color="black" size="24"/></a></li>

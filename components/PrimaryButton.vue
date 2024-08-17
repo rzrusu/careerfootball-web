@@ -4,7 +4,7 @@ const text = ref('')
 </script>
 
 <template>
-    <a href="{{ href }}" class="bg-[#85C003] hover:bg-[#96D803] text-white text-lg font-bold py-4 px-10 rounded-full transition">
+    <a href="{{ href }}" class="bg-[#85C003] hover:bg-[#96D803] text-white 2xl:text-lg font-bold py-3 px-7 2xl:py-4 2xl:px-10 rounded-full transition">
         <slot></slot>
     </a>
 </template>
