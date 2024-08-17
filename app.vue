@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-full px-16 2xl:px-0 2xl:max-w-7xl mx-auto py-2 space-y-2 2xl:space-y-4">
+  <div class="w-full px-4 lg:px-16 2xl:px-0 2xl:max-w-7xl mx-auto py-2 space-y-2 2xl:space-y-4">
     <Nav />
     <NuxtPage />
   </div>
@@ -7,10 +7,10 @@
 
 <style>
 
-@media (min-width: 640px) { 
+@media (min-width: 0px) { 
   body {
     background: url(./backgrounds/ball-bg.png);
-    background-size: 120vw 100em;
+    background-size: 300vw 100em;
     background-repeat: no-repeat;
     background-position: center top;
   }
@@ -23,4 +23,7 @@
   }
 }
 
+@media (min-width: 768px) {  }
+@media (min-width: 1024px) {  }
+@media (min-width: 1280px) {  }
 </style>
