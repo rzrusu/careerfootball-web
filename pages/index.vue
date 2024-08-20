@@ -3,7 +3,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-0">
       <div class="flex flex-col justify-start md:justify-center h-full w-full space-y-16">
         <div class="flex flex-col space-y-4">
-          <h1 class="uppercase font-bold font-work w-full text-5xl lg:text-[72px] 2xl:text-[86px] title text-[#1F1F1F]">Become a football superstar</h1>
+          <h1 class="uppercase font-bold font-work w-full text-5xl    lg:text-[72px] 2xl:text-[86px] title text-[#1F1F1F]">Become a football superstar</h1>
           <p class="2xl:text-lg text-[#4D4D4D] w-2/3">
             Ready to take over the world? Join us on the development journey of the ultimate football career mobile game.
           </p>
