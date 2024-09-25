@@ -14,7 +14,10 @@ defineProps<{
                 <h2 class="font-work w-full text-xl line-clamp-2 text-pretty">{{post.title}}</h2>
                 <p class="text-[#85C003] font-semibold w-2/3">{{post.date}}</p>
             </div>
-            <p class="text-[#4D4D4D] w-full">{{post.content}}</p>
+            <div class="h-full flex flex-col justify-between">
+                <p class="text-[#4D4D4D] w-full line-clamp-3 mb-4">{{post.content}}</p>
+                <a href="#" class="underline  text-blue-500">Read More</a>
+            </div>
         </div>
     </div>
 </template>
