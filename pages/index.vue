@@ -1,3 +1,11 @@
+<script setup lang="ts">
+const items = ref([
+  { type: 'Feature', title: 'We are excited to announce that we have started development on the game!', date: '15/06/2024', content: 'Test', image: '' },
+  { type: 'Blogpost', title: 'We are excited to die!', date: '15/06/2024', content: 'Test', image: '' },
+  { type: 'Blogpost', title: 'We are excited to die!', date: '15/06/2024', content: 'Test', image: '' },
+])
+</script>
+
 <template>
   <div class="space-y-16">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-0">
@@ -19,6 +27,9 @@
     </div>
     <div>
       <h1 class="uppercase font-bold font-work text-3xl title text-[#1F1F1F]">Latest updates</h1>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 mt-8">
+        <BlogPost v-for="item in items" :post="item"/>
+      </div>
     </div>
   </div>
 </template>
