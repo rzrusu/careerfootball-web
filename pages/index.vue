@@ -7,7 +7,7 @@ const items = ref([
 </script>
 
 <template>
-  <div class="space-y-32 h-auto">
+  <div class="space-y-48 h-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-0">
       <div class="flex flex-col justify-start md:justify-center h-auto w-full space-y-16">
         <div class="flex flex-col space-y-4">
@@ -29,6 +29,11 @@ const items = ref([
       <h1 class="uppercase font-bold font-work text-3xl title text-[#1F1F1F]">Latest updates</h1>
       <div class="grid grid-cols-1 sm:grid-cols-2 auto-rows-fr md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 mt-8 h-fit">
         <BlogPost v-for="item in items" :post="item"/>
+      </div>
+    </div>
+    <div>
+      <div>
+        <SectionHeader text="Start from humble beginnings"/>
       </div>
     </div>
   </div>
