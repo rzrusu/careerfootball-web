@@ -33,32 +33,35 @@ const items = ref([
     </div>
     <div class="space-y-48">
       <div>
-        <SectionHeader text="Start from humble beginnings"/>
-        <Section :leftaligned="true" title="Begin Your Journey" text="Start small by playing in local leagues, hone your skills, and build your reputation step by step. Every great career has humble origins." image="test" />
-        <Section :leftaligned="false" title="Overcome Challenges" text="Face challenges both on and off the field. Work hard, rise above setbacks, and showcase your potential to move up the ranks." image="test" />
-        <Section :leftaligned="true" title="Make a Name for Yourself" text="As you prove your talent, scouts take notice. Sign your first professional contract and set the stage for a legendary career." image="test" />
+        <SectionHeader text="Start from humble beginnings" />
+        <Section :leftaligned="true" title="Begin your journey" text="Start small by playing in local leagues, hone your skills, and build your reputation step by step. Stay focused, and let each game be a learning experience on your path to success." image="feature-1-2x.webp" />
+        <Section :leftaligned="false" title="Overcome a multitude of challenges" text="Face challenges both on and off the field. Push past obstacles, stay resilient, and prove your worth through determination and consistent effort." image="feature-2-2x.png" />
+        <Section :leftaligned="true" title="Make a name for yourself" text="As you prove your talent, scouts take notice. Your journey toward fame starts here, with every match bringing you closer to the spotlight." image="feature-1-2x.png" />
       </div>
       
       <div>
-        <SectionHeader text="Conquer the world stage"/>
-        <Section :leftaligned="true" title="Play for Elite Teams" text="Join top clubs around the world and compete in prestigious leagues and tournaments. Represent your country and become a global star." image="test" />
-        <Section :leftaligned="false" title="Make Iconic Performances" text="Deliver match-winning performances, break records, and etch your name in the history books. Let the world witness your greatness." image="test" />
-        <Section :leftaligned="true" title="Expand Your Global Influence" text="Take part in media appearances, commercials, and major events. Grow your fanbase and influence on and off the field." image="test" />
+          <SectionHeader text="Conquer the world stage" />
+          <Section :leftaligned="true" title="Play for elite teams" text="Join top clubs around the world and compete in prestigious leagues and tournaments. These stages are where legends are made, and your time to shine has arrived." image="test" />
+          <Section :leftaligned="false" title="Deliver iconic performances" text="Deliver match-winning performances, break records, and etch your name in the history books. Let each game push you toward immortal status." image="test" />
+          <Section :leftaligned="true" title="Expand your global influence" text="Take part in media appearances, commercials, and major events. Your influence grows as you take on new roles beyond the football field." image="test" />
       </div>
       
       <div>
-        <SectionHeader text="Build meaningful relationships"/>
-        <Section :leftaligned="true" title="Form Bonds with Teammates" text="Build strong relationships with teammates, coaches, and fans. Support each other to achieve greatness together." image="test" />
-        <Section :leftaligned="false" title="Engage with Fans" text="Connect with your loyal supporters, give back to the community, and create lasting memories through your interactions." image="test" />
-        <Section :leftaligned="true" title="Build a Legacy" text="Mentor younger players, foster deep connections, and leave behind a lasting impact both on and off the pitch." image="test" />
+          <SectionHeader text="Build meaningful relationships" />
+          <Section :leftaligned="true" title="Form bonds with teammates" text="Build strong relationships with teammates, coaches, and fans. Success comes easier when the team is united and works together for greatness." image="test" />
+          <Section :leftaligned="false" title="Engage with your fans" text="Connect with your loyal supporters, give back to the community, and create lasting memories. Your fans are your driving force." image="test" />
+          <Section :leftaligned="true" title="Build a legacy" text="Mentor younger players, foster deep connections, and leave behind a lasting impact both on and off the pitch. Your legacy will outlive your career." image="test" />
+          <Section :leftaligned="false" title="Start a family" text="Will you find true love and start a family, or embrace the spotlight as a global star? Your personal life choices will shape your future." image="test" />
       </div>
       
       <div>
-        <SectionHeader text="Acquire high value assets"/>
-        <Section :leftaligned="true" title="Accumulate Wealth" text="Earn lucrative contracts, endorsement deals, and investments. Secure your financial future through smart decisions." image="test" />
-        <Section :leftaligned="false" title="Own Luxury Properties" text="Acquire prestigious real estate in prime locations around the world. Live the life of a superstar both at home and abroad." image="test" />
-        <Section :leftaligned="true" title="Build Your Empire" text="Diversify your assets with businesses, brand deals, and other investments to create a lasting empire beyond football." image="test" />
+          <SectionHeader text="Acquire high value assets" />
+          <Section :leftaligned="true" title="Accumulate wealth" text="Earn lucrative contracts, endorsement deals, and investments. Make smart financial decisions that will ensure your future prosperity." image="test" />
+          <Section :leftaligned="false" title="Own luxury assets" text="Acquire prestigious real estate in prime locations around the world. Purchase luxury items that reflect your success and lifestyle." image="test" />
+          <Section :leftaligned="true" title="Build your empire" text="Diversify your assets with businesses, brand deals, and other investments. Establish an empire that continues to grow beyond football." image="test" />
       </div>
+      
+    
       
     </div>
   </div>

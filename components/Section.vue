@@ -14,6 +14,6 @@ defineProps<{
                 {{ text }}
             </p>
         </div>
-        <img :src="`../public/${image}.webp`" alt="Football" class="w-full bg-gray-300 rounded-lg min-h-96 col-span-2">
+        <img :src="`/features/${image}`" alt="Football" class="w-[90%] self-end rounded-lg min-h-96 col-span-2">
     </div>
 </template>
