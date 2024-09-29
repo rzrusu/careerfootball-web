@@ -42,8 +42,8 @@ const items = ref([
       <div>
           <SectionHeader text="Conquer the world stage" />
           <Section :leftaligned="true" title="Play for elite teams" text="Join top clubs around the world and compete in prestigious leagues and tournaments. These stages are where legends are made, and your time to shine has arrived." image="test" />
-          <Section :leftaligned="false" title="Deliver iconic performances" text="Deliver match-winning performances, break records, and etch your name in the history books. Let each game push you toward immortal status." image="test" />
-          <Section :leftaligned="true" title="Expand your global influence" text="Take part in media appearances, commercials, and major events. Your influence grows as you take on new roles beyond the football field." image="test" />
+          <Section :leftaligned="false" title="Deliver iconic performances" text="Deliver match-winning performances, break records, and etch your name in the history books. Let each game push you toward immortal status." image="feature-5-2x.png" />
+          <Section :leftaligned="true" title="Expand your global influence" text="Take part in media appearances, commercials, and major events. Your influence grows as you take on new roles beyond the football field." image="feature-6-2x.png" />
       </div>
       
       <div>
