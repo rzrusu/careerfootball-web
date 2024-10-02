@@ -41,7 +41,7 @@ const items = ref([
       
       <div>
           <SectionHeader text="Conquer the world stage" />
-          <Section :leftaligned="true" title="Play for elite teams" text="Join top clubs around the world and compete in prestigious leagues and tournaments. These stages are where legends are made, and your time to shine has arrived." image="test" />
+          <Section :leftaligned="true" title="Play for elite teams" text="Join top clubs around the world and compete in prestigious leagues and tournaments. These stages are where legends are made, and your time to shine has arrived." image="feature-4-2x.png" />
           <Section :leftaligned="false" title="Deliver iconic performances" text="Deliver match-winning performances, break records, and etch your name in the history books. Let each game push you toward immortal status." image="feature-5-2x.png" />
           <Section :leftaligned="true" title="Expand your global influence" text="Take part in media appearances, commercials, and major events. Your influence grows as you take on new roles beyond the football field." image="feature-6-2x.png" />
       </div>
@@ -50,8 +50,8 @@ const items = ref([
           <SectionHeader text="Build meaningful relationships" />
           <Section :leftaligned="true" title="Form bonds with teammates" text="Build strong relationships with teammates, coaches, and fans. Success comes easier when the team is united and works together for greatness." image="test" />
           <Section :leftaligned="false" title="Engage with your fans" text="Connect with your loyal supporters, give back to the community, and create lasting memories. Your fans are your driving force." image="test" />
-          <Section :leftaligned="true" title="Build a legacy" text="Mentor younger players, foster deep connections, and leave behind a lasting impact both on and off the pitch. Your legacy will outlive your career." image="test" />
-          <Section :leftaligned="false" title="Start a family" text="Will you find true love and start a family, or embrace the spotlight as a global star? Your personal life choices will shape your future." image="test" />
+          <!--<Section :leftaligned="true" title="Build a legacy" text="Mentor younger players, foster deep connections, and leave behind a lasting impact both on and off the pitch. Your legacy will outlive your career." image="test" />-->
+          <Section :leftaligned="true" title="Start a family" text="Will you find true love and start a family, or embrace the spotlight as a global star? Your personal life choices will shape your future." image="test" />
       </div>
       
       <div>
