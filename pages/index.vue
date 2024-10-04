@@ -46,13 +46,14 @@ const items = ref([
           <Section :leftaligned="true" title="Expand your global influence" text="Take part in media appearances, commercials, and major events. Your influence grows as you take on new roles beyond the football field." image="feature-6-2x.png" />
       </div>
       
+      <!--
       <div>
           <SectionHeader text="Build meaningful relationships" />
           <Section :leftaligned="true" title="Form bonds with teammates" text="Build strong relationships with teammates, coaches, and fans. Success comes easier when the team is united and works together for greatness." image="test" />
           <Section :leftaligned="false" title="Engage with your fans" text="Connect with your loyal supporters, give back to the community, and create lasting memories. Your fans are your driving force." image="test" />
-          <!--<Section :leftaligned="true" title="Build a legacy" text="Mentor younger players, foster deep connections, and leave behind a lasting impact both on and off the pitch. Your legacy will outlive your career." image="test" />-->
+          <!--<Section :leftaligned="true" title="Build a legacy" text="Mentor younger players, foster deep connections, and leave behind a lasting impact both on and off the pitch. Your legacy will outlive your career." image="test" />
           <Section :leftaligned="true" title="Start a family" text="Will you find true love and start a family, or embrace the spotlight as a global star? Your personal life choices will shape your future." image="test" />
-      </div>
+      </div> -->
       
       <div>
           <SectionHeader text="Acquire high value assets" />
