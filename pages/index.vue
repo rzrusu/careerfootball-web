@@ -56,10 +56,10 @@ const items = ref([
       </div> -->
       
       <div>
-          <SectionHeader text="Acquire high value assets" />
+          <SectionHeader text="Live a life of luxury" />
           <Section :leftaligned="true" title="Accumulate wealth" text="Earn lucrative contracts, endorsement deals, and investments. Make smart financial decisions that will ensure your future prosperity." image="test" />
           <Section :leftaligned="false" title="Own luxury assets" text="Acquire prestigious real estate in prime locations around the world. Purchase luxury items that reflect your success and lifestyle." image="test" />
-          <Section :leftaligned="true" title="Build your empire" text="Diversify your assets with businesses, brand deals, and other investments. Establish an empire that continues to grow beyond football." image="test" />
+          <Section :leftaligned="true" title="Build relationships" text="Interact with the people around you, make friends and rivals, keep in touch with your family or start one of your own." image="test" />
       </div>
       
     
