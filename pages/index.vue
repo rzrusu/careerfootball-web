@@ -65,6 +65,20 @@ const items = ref([
     
       
     </div>
+
+    <div class="w-full flex flex-col max-w-3xl mx-auto space-y-4">
+      <h1 class="uppercase font-bold font-work text-3xl title text-[#1F1F1F]">Frequently asked questions</h1>
+      <span class="text-[#4D4D4D]">Last updated 10/2024</span>
+      <div class="grid grid-cols-1 w-full gap-4">
+        <Question question="When will the game be released?" answer="At this stage, it's too early in development for us to provide an accurate release date. We will share updates as we progress further."/>
+        <Question question="Will the game be free to play?" answer="Yes, the core game will always be free to play, and no purchases will ever be required to enjoy the complete base experience."/>
+        <Question question="Which devices will the game be available on?" answer="The game will initially launch on Google Play, available for Android devices. We plan to expand support to other platforms after a successful and stable launch."/>
+        <Question question="Will there be in-game purchases?" answer="Yes, we plan to offer an option to disable ads through a microtransaction. However, no purchases will ever be necessary to play and enjoy the game."/>
+        <Question question="Can I save my progress if I switch devices?" answer="Yes, you can save your progress by linking your account to a social media or cloud service, allowing you to continue seamlessly on a new device."/>
+        <Question question="What languages will be supported at launch?" answer="Initially, we plan to support English only, as the game is text-heavy. We are considering adding more languages in the future based on demand."/>
+        <Question question="Will an internet connection be required to play?" answer="No, all essential game files and data will be stored on your device. An internet connection will only be needed for features like leaderboards and other social elements."/>
+      </div>
+    </div>
   </div>
 </template>
 
