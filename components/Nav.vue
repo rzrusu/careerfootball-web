@@ -8,7 +8,7 @@ const navOpen = ref(false)
 </script>
 
 <template>
-    <nav class="py-2 2xl:py-8 inline-flex items-center justify-between w-full">
+    <nav class="py-2 2xl:py-8 inline-flex items-center justify-between w-full max-w-7xl mx-auto">
         <a href="/"><img src="../public/logos/logo-big-min.png" alt="Logo" class="h-28 xl:h-32 2xl:h-36 w-auto"></a>
         <div class="lg:hidden">
             <button @click="navOpen = !navOpen">

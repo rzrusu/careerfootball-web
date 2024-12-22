@@ -7,7 +7,7 @@ const items = ref([
 </script>
 
 <template>
-  <div class="space-y-48 h-auto">
+  <div class="space-y-48 px-4 lg:px-16 2xl:px-0 2xl:max-w-7xl mx-auto py-2 space-y-2 2xl:space-y-4">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-0">
       <div class="flex flex-col justify-start md:justify-center h-auto w-full space-y-16">
         <div class="flex flex-col space-y-4">
@@ -31,43 +31,11 @@ const items = ref([
         <BlogPost v-for="item in items" :post="item"/>
       </div>
     </div>
-    <div class="space-y-48">
-      <div>
-        <SectionHeader text="Start from humble beginnings" />
-        <Section :leftaligned="true" title="Begin your journey" text="Start small by playing in local leagues, hone your skills, and build your reputation step by step. Stay focused, and let each game be a learning experience on your path to success." image="feature-1-2x.webp" />
-        <Section :leftaligned="false" title="Overcome a multitude of challenges" text="Face challenges both on and off the field. Push past obstacles, stay resilient, and prove your worth through determination and consistent effort." image="feature-2-2x.png" />
-        <Section :leftaligned="true" title="Make a name for yourself" text="As you prove your talent, scouts take notice. Your journey toward fame starts here, with every match bringing you closer to the spotlight." image="feature-1-2x.png" />
-      </div>
-      
-      <div>
-          <SectionHeader text="Conquer the world stage" />
-          <Section :leftaligned="true" title="Play for elite teams" text="Join top clubs around the world and compete in prestigious leagues and tournaments. These stages are where legends are made, and your time to shine has arrived." image="feature-4-2x.png" />
-          <Section :leftaligned="false" title="Deliver iconic performances" text="Deliver match-winning performances, break records, and etch your name in the history books. Let each game push you toward immortal status." image="feature-5-2x.png" />
-          <Section :leftaligned="true" title="Expand your global influence" text="Take part in media appearances, commercials, and major events. Your influence grows as you take on new roles beyond the football field." image="feature-6-2x.png" />
-      </div>
-      
-      <!--
-      <div>
-          <SectionHeader text="Build meaningful relationships" />
-          <Section :leftaligned="true" title="Form bonds with teammates" text="Build strong relationships with teammates, coaches, and fans. Success comes easier when the team is united and works together for greatness." image="test" />
-          <Section :leftaligned="false" title="Engage with your fans" text="Connect with your loyal supporters, give back to the community, and create lasting memories. Your fans are your driving force." image="test" />
-          <!--<Section :leftaligned="true" title="Build a legacy" text="Mentor younger players, foster deep connections, and leave behind a lasting impact both on and off the pitch. Your legacy will outlive your career." image="test" />
-          <Section :leftaligned="true" title="Start a family" text="Will you find true love and start a family, or embrace the spotlight as a global star? Your personal life choices will shape your future." image="test" />
-      </div> -->
-      
-      <div>
-          <SectionHeader text="Live a life of luxury" />
-          <Section :leftaligned="true" title="Accumulate wealth" text="Earn lucrative contracts, endorsement deals, and investments. Make smart financial decisions that will ensure your future prosperity." image="test" />
-          <Section :leftaligned="false" title="Own luxury assets" text="Acquire prestigious real estate in prime locations around the world. Purchase luxury items that reflect your success and lifestyle." image="test" />
-          <Section :leftaligned="true" title="Build relationships" text="Interact with the people around you, make friends and rivals, keep in touch with your family or start one of your own." image="test" />
-      </div>
-      
-    
-      
-    </div>
 
-    <div class="w-full flex flex-col max-w-3xl mx-auto space-y-4">
-      <h1 class="uppercase font-bold font-work text-3xl title text-[#1F1F1F]">Frequently asked questions</h1>
+
+
+    <!--<div class="w-full flex flex-col max-w-3xl mx-auto space-y-4">
+      <h1 class="uppercase font-bold font-work text-5xl title text-[#1F1F1F]">Frequently asked questions</h1>
       <span class="text-[#4D4D4D]">Last updated 10/2024</span>
       <div class="grid grid-cols-1 w-full gap-4">
         <Question question="When will the game be released?" answer="At this stage, it's too early in development for us to provide an accurate release date. We will share updates as we progress further."/>
@@ -78,7 +46,10 @@ const items = ref([
         <Question question="What languages will be supported at launch?" answer="Initially, we plan to support English only, as the game is text-heavy. We are considering adding more languages in the future based on demand."/>
         <Question question="Will an internet connection be required to play?" answer="No, all essential game files and data will be stored on your device. An internet connection will only be needed for features like leaderboards and other social elements."/>
       </div>
-    </div>
+    </div>-->
+  </div>
+  <div class="w-full bg-blue-500">
+    
   </div>
 </template>
 
