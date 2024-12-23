@@ -10,7 +10,7 @@
 @media (min-width: 0px) { 
   body {
     background: url(./backgrounds/ball-bg.webp);
-    background-size: 300vw 100em;
+    background-size: 200vw 100em;
     background-repeat: no-repeat;
     background-position: center top;
   }
@@ -19,7 +19,7 @@
 
 @media (min-width: 1536px) { 
   body {
-    background-size: 130vw 130em;
+    background-size: 130vw 120em;
   }
 }
 
