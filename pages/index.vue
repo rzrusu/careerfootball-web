@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import SubFeature from '~/components/SubFeature.vue';
+
 const items = ref([
   { type: 'Feature', title: 'Announcing the start of active development', date: '15/06/2024', content: 'Create and customize your own character and carve your own path throughout the major football leagues of Europe customize your own character and carve you', image: '' },
   { type: 'Blogpost', title: 'News regarding launch date', date: '15/06/2024', content: 'Create and customize your own character and carve your own path throughout the major football leagues of Europe customize your own character and carve you', image: '' },
@@ -51,6 +53,12 @@ const items = ref([
         <h1 class="uppercase font-bold font-work text-5xl title text-white">Immersive match simulation</h1>
         <div class="w-full h-[30vw] bg-gray-500 rounded-lg">
 
+        </div>
+        <div class="grid grid-cols-4 gap-8">
+          <SubFeature title="Dynamic Decision Points" text="Step in with key decisions that shape the match’s outcome. Will you play it safe or take a bold risk?" icon="f7:skew"/>
+          <SubFeature title="Probability-Driven Realism" text="Smart probabilities bring the game to life, making every move feel authentic and unpredictable." icon="material-symbols:full-stacked-bar-chart"/>
+          <SubFeature title="Narrative-Rich Matches" text="Experience every thrilling moment through detailed, immersive text. From goals to saves, live the action." icon="material-symbols:stadium"/>
+          <SubFeature title="Player-Controlled Fate" text="Build your legacy one decision at a time, both on and off the pitch through various game events." icon="icon-park-solid:road-sign-both"/>
         </div>
       </div>
     </div>
