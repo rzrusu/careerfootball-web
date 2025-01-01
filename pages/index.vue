@@ -65,16 +65,14 @@ const items = ref([
     <Section title="Build your own empire" 
             text="Sign high-value contracts with teams and invest your wealth on vehicles, properties, luxury items, and much more." 
             :bulletpoints="['Purchase real estate and vehicles', 'Build your personal brand', 'Impress others with your wealth', 'Live a luxurious life']" 
-            image="feature-4-2x.png" 
-    />
+            image="feature-4-2x.png" />
     <Section title="Carve your own story" 
             :leftaligned="true"
             text="Your character interacts with the people around them. Make friendships and rivalries, attend social and family events, and build a family with your lover." 
             :bulletpoints="['Make friendships and rivalries', 'Build a family with your partner', 'Organize and attend social events']" 
             image="feature-6-2x.webp" 
-            :gray="true" 
-  />
-  </div>
+            :gray="true"/>
+    </div>
     <div class="w-full flex flex-col max-w-3xl mx-auto space-y-4 py-36">
       <h1 class="uppercase font-bold font-work text-5xl title text-[#1F1F1F]">Frequently asked questions</h1>
       <span class="text-[#4D4D4D]">Last updated 10/2024</span>
@@ -90,10 +88,44 @@ const items = ref([
         <Question question="Will an internet connection be required to play?" answer="No, all essential game files and data will be stored on your device. An internet connection will only be needed for features like leaderboards and other social elements."/>
       </div>
     </div>
+
+    <!-- make a simple footer, make the text tighter so it's not so wide  -->
+    <div class="w-full flex flex-col items-center justify-center py-16 space-y-8">
+      <h1 class="uppercase font-bold font-work text-5xl title text-[#1F1F1F] w-1/3 text-center">Join the development journey</h1>
+      <p class="text-[#4D4D4D] w-1/3 text-center">
+        Be part of something special from the ground up. Follow our development updates, share your ideas, and help shape the future of the game. Join our growing community today!
+      </p>
+      <div class="inline-flex items-center space-x-2">
+        <PrimaryButton href="#">Development Blog</PrimaryButton>
+        <DiscordButton href="#"/>
+      </div>
+    </div>
+
+    <!-- make a simple footer with links to the privacy policy and terms of service  and other -->
+     
+    <!-- Footer -->
+    <footer class="w-full border-t border-gray-200 mt-16">
+      <div class="max-w-7xl mx-auto py-8 px-4 lg:px-16 2xl:px-0">
+        <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+
+            <img src="../public/logos/logo-big-min.png" alt="Logo" class="h-28 w-auto">
+          
+          <!-- Links -->
+          <div class="flex items-center space-x-6 text-sm text-gray-600">
+            <a href="/privacy-policy" class="hover:text-gray-900">Privacy Policy</a>
+            <a href="/terms-of-service" class="hover:text-gray-900">Terms of Service</a>
+            <a href="/press-kit" class="hover:text-gray-900">Press Kit</a>
+            <a href="#" class="hover:text-gray-900">Discord</a>
+            <a href="#" class="hover:text-gray-900">Development Blog</a>
+          </div>
+        </div>
+      </div>
+    </footer>
 </template>
 
 <style scoped>
   .title {
     line-height: 85%;
   }
+  
 </style>
