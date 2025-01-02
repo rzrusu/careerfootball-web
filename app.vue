@@ -9,7 +9,7 @@
 
 @media (min-width: 0px) { 
   body {
-    background: url(./backgrounds/ball-bg.webp);
+    background: url(/backgrounds/ball-bg.webp);
     background-size: 200vw 100em;
     background-repeat: no-repeat;
     background-position: center top;
