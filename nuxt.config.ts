@@ -7,10 +7,6 @@ export default defineNuxtConfig({
     name: 'Football Career',
   },
 
-  gtag: {
-    id: 'G-54058BNVWR'
-  },
-
   ssr: true,
   modules: [
     "@nuxtjs/google-fonts",
@@ -22,6 +18,9 @@ export default defineNuxtConfig({
     "nuxt-gtag",
   ],
 
+  gtag: {
+    id: 'G-54058BNVWR'
+  },
 
   googleFonts: {
     families: {
