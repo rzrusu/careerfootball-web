@@ -21,7 +21,7 @@ defineProps<{
                     </div>
                 </div>
             </div>
-            <img :src="`/features/${image}`" alt="Football" class="w-full md:w-[90%] h-auto self-end rounded-lg min-h-96 col-span-2">
+            <img :src="`/features/${image}`" alt="Football Feature Image" class="w-full md:w-[90%] h-auto self-end rounded-lg min-h-96 col-span-2">
         </div>
     </div>
 </template>

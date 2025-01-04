@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import SubFeature from '~/components/SubFeature.vue';
-
   const items = [
     '1',
     '2',
@@ -14,6 +12,31 @@
     '10',
     '11',
   ];
+
+
+  useSeoMeta({
+    title: 'Football Career - Become a football superstar',
+    description: 'Football Career is a mobile text-based simulation game where you live the dream of becoming a football legend. Train your skills, sign with top teams, and rise to greatness on and off the pitch.',
+    ogDescription: 'Football Career is a mobile text-based simulation game where you live the dream of becoming a football legend. Train your skills, sign with top teams, and rise to greatness on and off the pitch.',
+    ogImage: '/og-image.png',
+    twitterTitle: 'Football Career - Become a football superstar',
+    twitterDescription: 'Football Career is a mobile text-based simulation game where you live the dream of becoming a football legend. Train your skills, sign with top teams, and rise to greatness on and off the pitch.',
+    twitterImage: '/og-image.png',
+    twitterCard: 'summary'
+  })
+
+  useHead({
+    htmlAttrs: {
+      lang: 'en'
+    },
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/png',
+        href: '/favicon.png'
+      }
+    ]
+  })
 </script>
 
 <template>
@@ -32,7 +55,9 @@
         </div>
       </div>
       <div class="inline-flex justify-center 2xl:justify-end h-full hidden md:block">
-        <img src="../public/phones.webp" alt="Football" class="w-2/3 h-auto md:w-[420px] md:h-[484px] 2xl:w-[575px] 2xl:h-[663px]">
+        <img src="../public/phones.webp" 
+             alt="Football Career game interface displayed on multiple mobile phones" 
+             class="w-2/3 h-auto md:w-[420px] md:h-[484px] 2xl:w-[575px] 2xl:h-[663px]">
       </div>
     </div>
     <div class="w-full flex flex-col items-center justify-center">
@@ -40,7 +65,9 @@
 
       <UCarousel v-slot="{ item }" :items="items">
         <div class="px-4"> 
-          <img :src="`/screenshots/${item}.webp`  " width="300" height="400" draggable="false">
+          <img :src="`/screenshots/${item}.webp`" 
+               :alt="`Football Career gameplay screenshot ${item}`" 
+               width="300" height="400" draggable="false">
         </div>
       </UCarousel>
     </div>  
@@ -61,8 +88,12 @@
       <div class="max-w-7xl flex flex-col items-center justify-center mx-auto space-y-8">
         <h1 class="uppercase font-bold font-work text-2xl title text-[#A1E53E]">Match engine</h1>
         <h1 class="uppercase font-bold font-work text-5xl text-center title text-white">Immersive match simulation</h1>
-          <img src="/features/match.webp" alt="Match Engine" class="hidden md:block w-full h-[40vw] lg:h-[30vw] object-cover rounded-xl">
-          <img src="/features/match-mobile.webp" alt="Match Engine" class="block md:hidden w-full h-auto object-cover rounded-xl">
+          <img src="/features/match.webp" 
+               alt="Football Career match engine interface showing gameplay simulation" 
+               class="hidden md:block w-full h-[40vw] lg:h-[30vw] object-cover rounded-xl">
+          <img src="/features/match-mobile.webp" 
+               alt="Football Career match engine interface optimized for mobile devices" 
+               class="block md:hidden w-full h-auto object-cover rounded-xl">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           <SubFeature title="Dynamic Decision Points" text="Step in with key decisions that shape the match’s outcome. Will you play it safe or take a bold risk?" icon="f7:skew"/>
           <SubFeature title="Probability-Driven Realism" text="Smart probabilities bring the game to life, making every move feel authentic and unpredictable." icon="material-symbols:full-stacked-bar-chart"/>
@@ -95,14 +126,13 @@
         <Question question="Which devices will the game be available on?" answer="The game will initially launch on Google Play, available for Android devices. We plan to expand support to other platforms after a successful and stable launch."/>
         <Question question="Will there be in-game purchases?" 
         answer="Yes, we plan to offer optional microtransactions such as the ability to skip ads or have certain advantages in the game. However, no purchases will ever be necessary to play and enjoy the game."/>
-        <!--<Question question="Can I save my progress if I switch devices?" answer="Yes, you can save your progress by linking your account to a social media or cloud service, allowing you to continue seamlessly on a new device."/>-->
+  
         <Question question="What languages will be supported at launch?" answer="Initially, we plan to support English only, as the game is text-heavy. If the game launches successfully, we will consider adding more languages in the future based on demand."/>
         <Question question="Will an internet connection be required to play?" answer="No, all essential game files and data will be stored on your device. An internet connection will only be needed for features like leaderboards and other social elements which are completely optional."/>
         <Question question="Will there be ads in the game?" answer="Yes, we plan to include ads in the game as a way to support the development of the game. However, no purchases will ever be necessary to play and enjoy the game. You will be able to disable ads forever through a microtransaction."/>
       </div>
     </div>
 
-    <!-- make a simple footer, make the text tighter so it's not so wide  -->
     <div class="w-full flex flex-col items-center justify-center py-16 space-y-8 px-4 lg:px-0">
       <h1 class="uppercase font-bold font-work text-4xl md:text-5xl title text-[#1F1F1F] w-full lg:w-1/3 text-center">Join the development journey</h1>
       <p class="text-[#4D4D4D] w-full lg:w-1/3 text-center">
@@ -113,8 +143,6 @@
       </div>
     </div>
 
-    <!-- make a simple footer with links to the privacy policy and terms of service  and other -->
-     
     <!-- Footer -->
     <footer class="w-full border-t border-gray-200 py-8">
       <div class="max-w-7xl mx-auto py-8 px-4 lg:px-16 2xl:px-0">

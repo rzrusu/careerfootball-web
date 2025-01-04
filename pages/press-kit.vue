@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts" setup>
-// Add your download logic here later
+
 </script>
 
 <style>

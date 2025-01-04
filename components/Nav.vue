@@ -42,7 +42,7 @@ const navOpen = ref(false)
                 <li><a href="https://www.tiktok.com/@playfootballcareer"><Icon name="ic:baseline-tiktok" color="black" size="24"/></a></li>
                 <li><a href="https://www.youtube.com/@playfootballcareer"><Icon name="uil:youtube" color="black" size="24"/></a></li>
                 <li><a href="https://discord.gg/hwDFc2S94Y"><Icon name="ic:baseline-discord" color="black" size="24"/></a></li>
-                <li><a href="https://x.com/playfootballcareer"><Icon name="prime:twitter" color="black" size="20"/></a></li>
+                <li><a href="https://x.com/careerfootball"><Icon name="prime:twitter" color="black" size="20"/></a></li>
             </ul>
         </div>
     </div>
