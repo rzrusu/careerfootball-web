@@ -19,32 +19,30 @@ const navOpen = ref(false)
         </div>
         <div class="bg-white rounded-full py-1 px-6 items-center highlight space-x-2 2xl:space-x-6 hidden lg:inline-flex">
             <ul class="flex justify-between divide-x">
-                <li><a href="#" class="text-sm 2xl:text-base">Updates</a></li>
-                <li><a href="#" class="text-sm 2xl:text-base">Roadmap</a></li>
-                <li><a href="#" class="text-sm 2xl:text-base">Press</a></li>
-                <li><a href="#" class="text-sm 2xl:text-base">Contact</a></li>
+                <li><a href="#" class="text-sm 2xl:text-base">Home</a></li>
+                <li><a href="#features" class="text-sm 2xl:text-base">Features</a></li>
+                <li><a href="mailto:hello@footballcareer.com" class="text-sm 2xl:text-base">Contact</a></li>
             </ul>
-            <ul class="flex justify-between py-4 px-6 media">
-                <li><a href="#"><Icon name="ic:baseline-tiktok" color="black" size="24"/></a></li>
-                <li><a href="#"><Icon name="uil:youtube" color="black" size="24"/></a></li>
-                <li><a href="#"><Icon name="ic:baseline-discord" color="black" size="24"/></a></li>
-                <li><a href="#"><Icon name="prime:twitter" color="black" size="20"/></a></li>
+            <ul class="flex justify-between py-0 mt-4 sm:mt-0 md:py-4 px-6 media">
+                <li><a href="https://www.tiktok.com/@playfootballcareer"><Icon name="ic:baseline-tiktok" color="black" size="24"/></a></li>
+                <li><a href="https://www.youtube.com/@playfootballcareer"><Icon name="uil:youtube" color="black" size="24"/></a></li>
+                <li><a href="https://discord.gg/hwDFc2S94Y"><Icon name="ic:baseline-discord" color="black" size="24"/></a></li>
+                <li><a href="https://x.com/careerfootball"><Icon name="prime:twitter" color="black" size="20"/></a></li>
             </ul>
         </div>
     </nav>
     <div v-if="navOpen">
         <div class="bg-white rounded-full w-full py-6 md:py-2  px-6 items-center justify-center highlight space-x-2 2xl:space-x-6 flex flex-col sm:flex-row mb-16">
             <ul class="flex justify-between divide-x">
-                <li><a href="#" class="text-sm 2xl:text-base">Updates</a></li>
-                <li><a href="#" class="text-sm 2xl:text-base">Roadmap</a></li>
-                <li><a href="#" class="text-sm 2xl:text-base">Press</a></li>
-                <li><a href="#" class="text-sm 2xl:text-base">Contact</a></li>
+                <li><a href="#" class="text-sm 2xl:text-base">Home</a></li>
+                <li><a href="#features" class="text-sm 2xl:text-base">Features</a></li>
+                <li><a href="mailto:hello@footballcareer.com" class="text-sm 2xl:text-base">Contact</a></li>
             </ul>
             <ul class="flex justify-between py-0 mt-4 sm:mt-0 md:py-4 px-6 media">
-                <li><a href="#"><Icon name="ic:baseline-tiktok" color="black" size="24"/></a></li>
-                <li><a href="#"><Icon name="uil:youtube" color="black" size="24"/></a></li>
-                <li><a href="#"><Icon name="ic:baseline-discord" color="black" size="24"/></a></li>
-                <li><a href="#"><Icon name="prime:twitter" color="black" size="20"/></a></li>
+                <li><a href="https://www.tiktok.com/@playfootballcareer"><Icon name="ic:baseline-tiktok" color="black" size="24"/></a></li>
+                <li><a href="https://www.youtube.com/@playfootballcareer"><Icon name="uil:youtube" color="black" size="24"/></a></li>
+                <li><a href="https://discord.gg/hwDFc2S94Y"><Icon name="ic:baseline-discord" color="black" size="24"/></a></li>
+                <li><a href="https://x.com/playfootballcareer"><Icon name="prime:twitter" color="black" size="20"/></a></li>
             </ul>
         </div>
     </div>

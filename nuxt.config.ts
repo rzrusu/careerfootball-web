@@ -4,10 +4,10 @@ export default defineNuxtConfig({
 
   ssr: true,
   modules: [
-    "@nuxtjs/tailwindcss",
     "@nuxtjs/google-fonts",
     "nuxt-icon",
     "@nuxt/content",
+    "@nuxt/ui",
   ],
   googleFonts: {
     families: {

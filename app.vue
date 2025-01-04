@@ -13,6 +13,7 @@
     background-size: 200vw 100em;
     background-repeat: no-repeat;
     background-position: center top;
+    background-color: white;
   }
 }
 
