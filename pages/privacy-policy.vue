@@ -31,7 +31,62 @@
       <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">6. Changes to This Privacy Policy</h2>
       <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.</p>
       
-      <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">7. Contact Us</h2>
+      <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">7. Use of Google Analytics</h2>
+      <p>
+    We use Google Analytics to better understand how our users interact with 
+    our website. Google Analytics helps us analyze 
+    website traffic and usage patterns, enabling us to improve our services and 
+    provide a better experience for our users.
+  </p>
+
+  <h3 class="text-xl font-semibold text-[#1F1F1F] mt-6">What Data Does Google Analytics Collect?</h3>
+  <p>Google Analytics collects information such as:</p>
+  <ul>
+    <li>Your IP address (anonymized for privacy).</li>
+    <li>Device type and browser information.</li>
+    <li>Pages you visit on our website or app.</li>
+    <li>Time spent on each page and general usage patterns.</li>
+    <li>Geographic location (general, not precise).</li>
+  </ul>
+
+  <h3 class="text-xl font-semibold text-[#1F1F1F] mt-6">How Is Your Data Protected?</h3>
+  <p>
+    Google Analytics processes the collected data in compliance with the 
+    General Data Protection Regulation (GDPR) and other applicable laws. 
+    We have enabled IP anonymization in Google Analytics, which means your 
+    IP address is shortened to prevent identifying individual users.
+  </p>
+
+  <h3 class="text-xl font-semibold text-[#1F1F1F] mt-6">Can You Opt-Out of Google Analytics?</h3>
+  <p>
+    Yes, you can opt-out of Google Analytics tracking by:
+  </p>
+  <ul>
+    <li>
+      Installing the 
+      <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">
+        Google Analytics Opt-out Browser Add-on
+      </a>.
+    </li>
+    <li>
+      Adjusting your cookie preferences when prompted by our site.
+    </li>
+  </ul>
+  <p>
+    For more information about how Google handles collected data, please refer 
+    to the 
+    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">
+      Google Privacy Policy
+    </a>.
+  </p>
+
+  <p>
+    If you have further questions about our use of Google Analytics or your data 
+    privacy, please contact us at 
+    <a href="mailto:assemblegames@yahoo.com">assemblegames@yahoo.com</a>.
+  </p>
+      
+      <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">8. Contact Us</h2>
         <p>If you have any questions about this Privacy Policy, please contact us at assemblegames@yahoo.com</p>
       </div>
     </Container>
