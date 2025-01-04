@@ -45,7 +45,7 @@
       </UCarousel>
     </div>  
   </div>
-  <div class="w-full mt-48">
+  <div class="w-full mt-48" id="features">
     <Section title="Make your own journey" 
             text="Create and customize your own character. Carve your own path throughout the major leagues of international football. Fight for you place among the greats." 
             :bulletpoints="['Build and train your skillset', 'Fight for a first-team spot', 'Impress scouts and coaches']" 
