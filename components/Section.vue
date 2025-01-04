@@ -7,11 +7,11 @@ defineProps<{
 <template>
     <div :class="{ 'bg-gray-100': gray }">
         <div class="grid px-4 md:px-0 grid-cols-1 md:grid-cols-4 py-24 items-center gap-24 max-w-7xl mx-auto w-full">
-            <div :class="{ 'order-last': !leftaligned }" class="space-y-5 w-full col-span-2">
-                <h2 class="font-work font-semibold text-5xl title text-[#1F1F1F] w-2/3"> 
+            <div :class="{ 'order-last': !leftaligned }" class="space-y-5  flex flex-col justify-center md:justify-start w-full col-span-2">
+                <h2 class="font-work font-semibold text-5xl title text-[#1F1F1F] w-full md:w-2/3 text-center md:text-left"> 
                     {{ title.toUpperCase() }}
                 </h2>
-                <p class="text-[#4D4D4D] w-4/5">
+                <p class="text-[#4D4D4D] w-full md:w-4/5 text-center md:text-left">
                     {{ text }}
                 </p>
                 <div class="space-y-2">
