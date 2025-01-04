@@ -7,8 +7,8 @@ export default defineNuxtConfig({
     name: 'Football Career',
   },
 
-  googleAnalytics: {
-    id: 'G-F0PSGVYJBX ',
+  gtag: {
+    id: 'G-54058BNVWR'
   },
 
   ssr: true,
@@ -19,11 +19,9 @@ export default defineNuxtConfig({
     "@nuxtjs/seo",
     '@nuxt/image',
     "@nuxt/ui",
+    "nuxt-gtag",
   ],
 
-  buildModules: [
-    '@nuxtjs/google-analytics'
-  ],
 
   googleFonts: {
     families: {
