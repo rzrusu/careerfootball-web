@@ -22,7 +22,7 @@
       <div class="flex flex-col justify-start md:justify-center h-auto w-full space-y-16">
         <div class="flex flex-col space-y-4">
           <h1 class="uppercase font-bold font-work w-full text-5xl    lg:text-[72px] 2xl:text-[86px] title text-[#1F1F1F]">Become a football superstar</h1>
-          <h2 class="text-4xl font-bold font-work text-[#1F1F1F] uppercase">Train. Play. Win.</h2>
+          <h2 class="text-2xl md:text-4xl font-bold font-work text-[#1F1F1F] uppercase">Train. Play. Win.</h2>
           <p class="2xl:text-lg text-[#4D4D4D] w-2/3">
             Football Career is a mobile text-based simulation game where you live the dream of becoming a football legend. Train your skills, sign with top teams, and rise to greatness on and off the pitch.
           </p>
@@ -31,7 +31,7 @@
           <DiscordButton href="https://discord.gg/hwDFc2S94Y"/>
         </div>
       </div>
-      <div class="inline-flex justify-center 2xl:justify-end h-full">
+      <div class="inline-flex justify-center 2xl:justify-end h-full hidden md:block">
         <img src="../public/phones.webp" alt="Football" class="w-2/3 h-auto md:w-[420px] md:h-[484px] 2xl:w-[575px] 2xl:h-[663px]">
       </div>
     </div>
@@ -57,12 +57,13 @@
             :bulletpoints="['Make friendships and rivalries', 'Build a family with your partner', 'Organize and attend social events']" 
             image="f4.webp" 
             :gray="true"/>
-    <div class="bg-green-800 py-24">
+    <div class="bg-green-800 py-24 px-4 md:px-0">
       <div class="max-w-7xl flex flex-col items-center justify-center mx-auto space-y-8">
         <h1 class="uppercase font-bold font-work text-2xl title text-[#A1E53E]">Match engine</h1>
-        <h1 class="uppercase font-bold font-work text-5xl title text-white">Immersive match simulation</h1>
-          <img src="/features/match.webp" alt="Match Engine" class="w-full h-[30vw] object-cover rounded-xl">
-        <div class="grid grid-cols-4 gap-8">
+        <h1 class="uppercase font-bold font-work text-5xl text-center title text-white">Immersive match simulation</h1>
+          <img src="/features/match.webp" alt="Match Engine" class="hidden md:block w-full h-[30vw] object-cover rounded-xl">
+          <img src="/features/match-mobile.webp" alt="Match Engine" class="block md:hidden w-full h-auto object-cover rounded-xl">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           <SubFeature title="Dynamic Decision Points" text="Step in with key decisions that shape the match’s outcome. Will you play it safe or take a bold risk?" icon="f7:skew"/>
           <SubFeature title="Probability-Driven Realism" text="Smart probabilities bring the game to life, making every move feel authentic and unpredictable." icon="material-symbols:full-stacked-bar-chart"/>
           <SubFeature title="Narrative-Rich Matches" text="Experience every thrilling moment through detailed, immersive text. From goals to saves, live the action." icon="material-symbols:stadium"/>
@@ -82,8 +83,8 @@
             :gray="true" 
     />
     </div>
-    <div class="w-full flex flex-col max-w-3xl mx-auto space-y-4 py-36">
-      <h1 class="uppercase font-bold font-work text-5xl title text-[#1F1F1F]">Frequently asked questions</h1>
+    <div class="w-full flex flex-col max-w-3xl mx-auto space-y-4 py-36 px-4 md:px-0">
+      <h1 class="uppercase font-bold font-work text-4xl md:text-5xl title text-[#1F1F1F]">Frequently asked questions</h1>
       <span class="text-[#4D4D4D]">Last updated 01/2025</span>
       <div class="grid grid-cols-1 w-full gap-4">
         <Question question="When will the game be released?"
@@ -102,9 +103,9 @@
     </div>
 
     <!-- make a simple footer, make the text tighter so it's not so wide  -->
-    <div class="w-full flex flex-col items-center justify-center py-16 space-y-8">
-      <h1 class="uppercase font-bold font-work text-5xl title text-[#1F1F1F] w-1/3 text-center">Join the development journey</h1>
-      <p class="text-[#4D4D4D] w-1/3 text-center">
+    <div class="w-full flex flex-col items-center justify-center py-16 space-y-8 px-4 md:px-0">
+      <h1 class="uppercase font-bold font-work text-4xl md:text-5xl title text-[#1F1F1F] w-full md:w-1/3 text-center">Join the development journey</h1>
+      <p class="text-[#4D4D4D] w-full md:w-1/3 text-center">
         Be part of something special from the ground up. Follow our development updates, share your ideas, and help shape the future of the game. Join our growing community today!
       </p>
       <div class="inline-flex items-center space-x-2">

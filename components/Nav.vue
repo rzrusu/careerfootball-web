@@ -9,7 +9,7 @@ const navOpen = ref(false)
 
 <template>
     <nav class="py-2 2xl:py-8 inline-flex items-center justify-between w-full max-w-7xl mx-auto">
-        <a href="/"><img src="../public/logos/logo-big-min.png" alt="Logo" class="h-28 xl:h-32 2xl:h-36 w-auto"></a>
+        <a href="/"><img src="../public/logos/logo-big-min.png" alt="Logo" class="h-24 md:h-28 xl:h-32 2xl:h-36 w-auto"></a>
         <div class="lg:hidden">
             <button @click="navOpen = !navOpen">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
