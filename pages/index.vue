@@ -40,7 +40,7 @@
 </script>
 
 <template>
-  <div class="space-y-48 px-4 lg:px-16 2xl:px-0 2xl:max-w-7xl mx-auto py-2 space-y-2 2xl:space-y-4">
+  <div class="space-y-48 mt-24 md:mt-0 px-4 lg:px-16 2xl:px-0 2xl:max-w-7xl mx-auto py-2 2xl:space-y-4">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-0 mb-48">
       <div class="flex flex-col justify-start md:justify-center h-auto w-full space-y-16">
         <div class="flex flex-col space-y-4">
