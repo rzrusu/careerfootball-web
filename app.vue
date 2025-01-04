@@ -10,13 +10,22 @@
 @media (min-width: 0px) { 
   body {
     background: url(/backgrounds/ball-bg.webp);
-    background-size: 200vw 100em;
+    background-size: 600vw 100em;
     background-repeat: no-repeat;
     background-position: center top;
     background-color: white;
   }
 }
 
+@media (min-width: 768px) {  
+  body {
+    background-size: 200vw 100em;
+  }
+}
+
+@media (min-width: 1024px) {  }
+
+@media (min-width: 1280px) {  }
 
 @media (min-width: 1536px) { 
   body {
@@ -24,7 +33,10 @@
   }
 }
 
-@media (min-width: 768px) {  }
-@media (min-width: 1024px) {  }
-@media (min-width: 1280px) {  }
+@media (min-width: 2000px) { 
+  body {
+    background-size: 100vw 120em;
+  }
+}
+
 </style>

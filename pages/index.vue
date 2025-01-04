@@ -55,9 +55,9 @@
         </div>
       </div>
       <div class="inline-flex justify-center 2xl:justify-end h-full hidden md:block">
-        <img src="../public/phones.webp" 
-             alt="Football Career game interface displayed on multiple mobile phones" 
-             class="w-2/3 h-auto md:w-[420px] md:h-[484px] 2xl:w-[575px] 2xl:h-[663px]">
+        <NuxtImg src="/phones.webp" 
+                 alt="Football Career game interface displayed on multiple mobile phones" 
+                 class="w-2/3 h-auto md:w-[420px] md:h-[484px] 2xl:w-[575px] 2xl:h-[663px]" />
       </div>
     </div>
     <div class="w-full flex flex-col items-center justify-center">
@@ -65,9 +65,9 @@
 
       <UCarousel v-slot="{ item }" :items="items">
         <div class="px-4"> 
-          <img :src="`/screenshots/${item}.webp`" 
-               :alt="`Football Career gameplay screenshot ${item}`" 
-               width="300" height="400" draggable="false">
+          <NuxtImg :src="`/screenshots/${item}.webp`" 
+                   :alt="`Football Career gameplay screenshot ${item}`" 
+                   width="320" height="650" draggable="false"/>
         </div>
       </UCarousel>
     </div>  
@@ -88,12 +88,12 @@
       <div class="max-w-7xl flex flex-col items-center justify-center mx-auto space-y-8">
         <h1 class="uppercase font-bold font-work text-2xl title text-[#A1E53E]">Match engine</h1>
         <h1 class="uppercase font-bold font-work text-5xl text-center title text-white">Immersive match simulation</h1>
-          <img src="/features/match.webp" 
-               alt="Football Career match engine interface showing gameplay simulation" 
-               class="hidden md:block w-full h-[40vw] lg:h-[30vw] object-cover rounded-xl">
-          <img src="/features/match-mobile.webp" 
-               alt="Football Career match engine interface optimized for mobile devices" 
-               class="block md:hidden w-full h-auto object-cover rounded-xl">
+          <NuxtImg src="/features/match.webp" 
+                   alt="Football Career match engine interface showing gameplay simulation" 
+                   class="hidden md:block w-full h-[40vw] lg:h-[30vw] object-cover rounded-xl"/>
+          <NuxtImg src="/features/match-mobile.webp" 
+                   alt="Football Career match engine interface optimized for mobile devices" 
+                   class="block md:hidden w-full h-auto object-cover rounded-xl"/>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           <SubFeature title="Dynamic Decision Points" text="Step in with key decisions that shape the match’s outcome. Will you play it safe or take a bold risk?" icon="f7:skew"/>
           <SubFeature title="Probability-Driven Realism" text="Smart probabilities bring the game to life, making every move feel authentic and unpredictable." icon="material-symbols:full-stacked-bar-chart"/>

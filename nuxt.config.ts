@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     "nuxt-icon",
     "@nuxt/content",
     "@nuxtjs/seo",
+    '@nuxt/image',
     "@nuxt/ui",
   ],
   googleFonts: {
