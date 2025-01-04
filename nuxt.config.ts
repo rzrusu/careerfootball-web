@@ -7,6 +7,10 @@ export default defineNuxtConfig({
     name: 'Football Career',
   },
 
+  googleAnalytics: {
+    id: 'G-F0PSGVYJBX ',
+  },
+
   ssr: true,
   modules: [
     "@nuxtjs/google-fonts",
@@ -16,6 +20,11 @@ export default defineNuxtConfig({
     '@nuxt/image',
     "@nuxt/ui",
   ],
+
+  buildModules: [
+    '@nuxtjs/google-analytics'
+  ],
+
   googleFonts: {
     families: {
       'Work+Sans': [900],
