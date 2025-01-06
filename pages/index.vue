@@ -150,7 +150,7 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
             <div class="flex flex-col items-center justify-center space-y-4 text-gray-600">
               <p class="text-lg font-bold">CONTACT</p>
-              <p class="text-sm text-gray-500">hello@footballcareer.com</p>
+              <p class="text-sm text-gray-500">hello@footballcareer.app</p>
             </div>
             <div class="flex flex-col items-center justify-center space-y-4 text-gray-600">
               <p class="text-lg font-bold">CONNECT</p>
