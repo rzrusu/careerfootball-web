@@ -54,6 +54,7 @@
           </p>
         </div>
         <div class="inline-flex items-center space-x-2">
+          <PrimaryButton href="/blog">Development Blog</PrimaryButton>
           <DiscordButton href="https://discord.gg/hwDFc2S94Y"/>
         </div>
       </div>
