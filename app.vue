@@ -7,16 +7,6 @@
 
 <style>
 
-@media (min-width: 0px) { 
-  body {
-    background: url(/backgrounds/ball-bg.webp);
-    background-size: 600vw 100em;
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-color: white;
-  }
-}
-
 @media (min-width: 768px) {  
   body {
     background-size: 200vw 100em;

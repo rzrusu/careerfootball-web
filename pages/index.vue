@@ -29,6 +29,9 @@
     htmlAttrs: {
       lang: 'en'
     },
+    bodyAttrs: {
+      class: 'uses_bg'
+    },
     link: [
       {
         rel: 'icon',
@@ -170,9 +173,37 @@
     </footer>
 </template>
 
-<style scoped>
+<style>
   .title {
     line-height: 85%;
   }
+
+  @media (min-width: 0px) { 
+  .uses_bg {
+    background: url(/backgrounds/ball-bg.webp);
+    background-size: 600vw 100em;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-color: white;
+  }
+}
+
+  @media (min-width: 768px) {  
+    .uses_bg {
+      background-size: 200vw 100em;
+    }
+  }
+
+@media (min-width: 1536px) { 
+  .uses_bg {
+    background-size: 130vw 120em;
+  }
+}
+
+@media (min-width: 2000px) { 
+  .uses_bg {
+    background-size: 100vw 120em;
+  }
+}
   
 </style>
