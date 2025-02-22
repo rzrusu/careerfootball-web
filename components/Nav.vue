@@ -21,6 +21,7 @@ const navOpen = ref(false)
             <ul class="flex justify-between divide-x">
                 <li><a href="#" class="text-sm 2xl:text-base">Home</a></li>
                 <li><a href="#features" class="text-sm 2xl:text-base">Features</a></li>
+                <li><a href="/blog" class="text-sm 2xl:text-base">Blog</a></li>
                 <li><a href="mailto:hello@footballcareer.app" class="text-sm 2xl:text-base">Contact</a></li>
             </ul>
             <ul class="flex justify-between py-0 mt-4 sm:mt-0 md:py-4 px-6 media">
@@ -36,6 +37,7 @@ const navOpen = ref(false)
             <ul class="flex justify-between divide-x">
                 <li><a href="#" class="text-sm 2xl:text-base">Home</a></li>
                 <li><a href="#features" class="text-sm 2xl:text-base">Features</a></li>
+                <li><a href="/blog" class="text-sm 2xl:text-base">Blog</a></li>
                 <li><a href="mailto:hello@footballcareer.app" class="text-sm 2xl:text-base">Contact</a></li>
             </ul>
             <ul class="flex justify-between py-0 mt-4 sm:mt-0 md:py-4 px-6 media">
