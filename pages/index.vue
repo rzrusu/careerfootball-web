@@ -98,7 +98,7 @@
                    alt="Football Career match engine interface optimized for mobile devices" 
                    class="block md:hidden w-full h-auto object-cover rounded-xl"/>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          <SubFeature title="Dynamic Decision Points" text="Step in with key decisions that shape the match’s outcome. Will you play it safe or take a bold risk?" icon="f7:skew"/>
+          <SubFeature title="Dynamic Decision Points" text="Step in with key decisions that shape the match's outcome. Will you play it safe or take a bold risk?" icon="f7:skew"/>
           <SubFeature title="Probability-Driven Realism" text="Smart probabilities bring the game to life, making every move feel authentic and unpredictable." icon="material-symbols:full-stacked-bar-chart"/>
           <SubFeature title="Narrative-Rich Matches" text="Experience every thrilling moment through detailed, immersive text. From goals to saves, live the action." icon="material-symbols:stadium"/>
           <SubFeature title="Player-Controlled Fate" text="Build your legacy one decision at a time, both on and off the pitch through various game events." icon="icon-park-solid:road-sign-both"/>
@@ -146,31 +146,7 @@
       </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="w-full border-t border-gray-200 py-8 flex flex-col items-center justify-center space-y-4">
-      <div class="max-w-7xl mx-auto py-8 px-4 lg:px-16 2xl:px-0">
-        <div class="flex flex-col items-center justify-center space-y-4">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div class="flex flex-col items-center justify-center space-y-4 text-gray-600">
-              <p class="text-lg font-bold">CONTACT</p>
-              <p class="text-sm text-gray-500">hello@footballcareer.app</p>
-            </div>
-            <div class="flex flex-col items-center justify-center space-y-4 text-gray-600">
-              <p class="text-lg font-bold">CONNECT</p>
-              <ul class="flex justify-between space-x-6 media text-gray-500">
-                <li><a href="https://www.tiktok.com/@playfootballcareer"><Icon name="ic:baseline-tiktok" color="black" size="24"/></a></li>
-                <li><a href="https://www.youtube.com/@playfootballcareer"><Icon name="uil:youtube" color="black" size="24"/></a></li>
-                <li><a href="https://discord.gg/hwDFc2S94Y"><Icon name="ic:baseline-discord" color="black" size="24"/></a></li>
-                <li><a href="https://x.com/careerfootball"><Icon name="prime:twitter" color="black" size="20"/></a></li>
-            </ul>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <NuxtLink to="/privacy-policy" class="text-sm text-gray-500 w-fit">Privacy Policy</NuxtLink>
-      <p class="text-center text-sm text-gray-400">© 2025 Football Career. All rights reserved.</p>
-    </footer>
+    <Footer />
 </template>
 
 <style>

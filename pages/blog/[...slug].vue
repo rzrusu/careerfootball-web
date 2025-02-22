@@ -1,5 +1,7 @@
-
 <script setup>
+
+// Fetch the current document
+const { data: article } = await useAsyncData('article', () => queryContent().where({ _path: useRoute().path }).findOne())
 
 useHead({
   bodyAttrs: {
@@ -12,20 +14,36 @@ useHead({
 <template>
   <main>
     <div class="flex flex-col items-center justify-center">
-      <div class="flex flex-col items-center justify-center">
-        <h1 class="text-4xl font-bold">Blog</h1>
-        <p class="text-gray-500">Stay up to date with the latest news and updates from the team.</p>
+      <div class="max-w-2xl w-full px-4">
+        <div class="flex flex-col items-center justify-center space-y-4 py-12">
+          <div class="bg-[#85C003] rounded-full px-4 py-1">
+            <span class="text-white font-bold text-sm uppercase tracking-wide">{{ article?.type }}</span>
+          </div>
+          <div class="text-center">
+            <h1 class="text-5xl font-black font-work text-[#1F1F1F] mb-3">{{ article?.title }}</h1>
+          </div>
+          <div class="flex items-center space-x-2 text-[#4D4D4D]">
+            <span>{{ article?.date }}</span>
+            <span>·</span>
+            <span>By {{ article?.author }}</span>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <Prose class="w-full">
+            <ContentDoc />
+          </Prose>
+        </div>
       </div>
-      
     </div>
-    <ContentDoc />
   </main>
+
+  <Footer />
 </template>
 
 <style>
   @media (min-width: 0px) { 
   .uses_light_bg {
-    background: url(/backgrounds/ball-bg-light.png);
+    background: url(/backgrounds/ball-bg-light.webp);
     background-size: 600vw 100em;
     background-repeat: no-repeat;
     background-position: center top;
