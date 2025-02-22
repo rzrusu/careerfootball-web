@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     "@nuxt/ui",
     "nuxt-gtag",
+    "@nuxtjs/tailwindcss",
   ],
 
   gtag: {
@@ -28,4 +29,10 @@ export default defineNuxtConfig({
       'Chivo': true,
     },
   },
+
+  tailwindcss: {
+    config: {
+      plugins: [require('@tailwindcss/typography')]
+    }
+  }
 })
