@@ -3,6 +3,9 @@
 // Fetch the current document
 const { data: article } = await useAsyncData('article', () => queryContent().where({ _path: useRoute().path }).findOne())
 
+// Components used inside Markdown (MDC)
+import Carousel from '~/components/Carousel.vue'
+
 useHead({
   bodyAttrs: {
     class: 'uses_light_bg'
@@ -30,7 +33,7 @@ useHead({
         </div>
         <div class="flex flex-col items-center justify-center">
           <Prose class="w-full">
-            <ContentDoc />
+            <ContentDoc :components="{ Carousel }" />
           </Prose>
         </div>
       </div>

@@ -9,13 +9,17 @@ image: "/blog/september-monthly.png"
 
 ![Fixture calendar (WIP)](/blog/september-monthly.png)
 
+
 ## A quick, honest update
 
 Progress on the game has been slower than planned over the past few months. We’ve had some personal life constraints and scheduling conflicts on the development side that impacted velocity. Thank you for your patience and continued support while we balance real life responsibilities with building something great.
 
 ## Introducing monthly updates
 
-This is the first post in our new Monthly Updates series. On the 15th of each month, we’ll share a transparent status update covering what we worked on, what changed, and what’s next. Expect clear summaries, visuals where possible, and links to deeper dives.
+This is the first post in our new Monthly Updates series. Every month we’ll share a transparent status update covering what we worked on, what changed, and what’s next. Expect clear summaries, visuals where possible, and links to deeper dives.
+
+<Carousel :images='[{"src":"/blog/time-feature@2x.png","alt":"Placeholder 1"},{"src":"/blog/time-feature@2x.png","alt":"Placeholder 2"},{"src":"/blog/time-feature@2x.png","alt":"Placeholder 3"}]' :show-indicators="true" :show-arrows="true"></Carousel>
+
 
 
 ## Public roadmap on Trello

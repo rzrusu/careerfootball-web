@@ -34,5 +34,11 @@ export default defineNuxtConfig({
     config: {
       plugins: [require('@tailwindcss/typography')]
     }
+  },
+
+  content: {
+    markdown: {
+      mdc: true
+    }
   }
 })
