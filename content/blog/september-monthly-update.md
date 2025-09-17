@@ -1,7 +1,7 @@
 ---
 title: "September Monthly Update"
 description: "A candid look at our recent pace, core system rewrites, and what's coming, including a roadmap and beta sign-ups."
-date: "September 15, 2025"
+date: "September 17, 2025"
 author: "Football Career Team"
 type: "Update"
 image: "/blog/september-monthly.png"
