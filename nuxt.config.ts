@@ -4,11 +4,10 @@ export default defineNuxtConfig({
   
   app: {
     head: {
-      link: [
+      script: [
         {
-          rel: 'preload',
-          type: 'script',
-          href: 'https://scripts.simpleanalyticscdn.com/latest.js'
+          async: true,
+          src: 'https://scripts.simpleanalyticscdn.com/latest.js'
         }
       ] 
     }
