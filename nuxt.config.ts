@@ -1,6 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  
+  app: {
+    head: {
+      link: [
+        {
+          rel: 'preload',
+          type: 'script',
+          href: 'https://scripts.simpleanalyticscdn.com/latest.js'
+        }
+      ] 
+    }
+  },
 
   site: {
     url: 'https://footballcareer.app',
