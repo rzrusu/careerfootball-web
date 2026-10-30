@@ -1,0 +1,66 @@
+---
+import { getCollection, render } from 'astro:content';
+import { getImage } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import Footer from '../../components/Footer.astro';
+import Prose from '../../components/Prose.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const cover = post.data.image;
+const ogImage = cover && {
+  src: (await getImage({ src: cover, format: 'jpeg', quality: 80 })).src,
+  type: 'image/jpeg',
+  width: cover.width,
+  height: cover.height,
+};
+---
+
+<Base title={post.data.title} ogTitle={post.data.title} description={post.data.description} ogImage={ogImage} bodyClass="uses_light_bg" preloadBackground="/backgrounds/ball-bg-light.webp">
+  <main>
+    <div class="flex flex-col items-center justify-center">
+      <div class="max-w-2xl w-full px-4">
+        <div class="flex flex-col items-center justify-center space-y-4 py-12">
+          <div class="bg-[#85C003] rounded-full px-4 py-1">
+            <span class="text-white font-bold text-sm uppercase tracking-wide">{post.data.type}</span>
+          </div>
+          <div class="text-center">
+            <h1 class="text-5xl font-black font-work text-[#1F1F1F] mb-3">{post.data.title}</h1>
+          </div>
+          <div class="flex items-center space-x-2 text-[#4D4D4D]">
+            <span>{post.data.date}</span>
+            <span>·</span>
+            <span>By {post.data.author}</span>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <Prose class="w-full">
+            <Content />
+          </Prose>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Base>
+
+<script>
+  import mediumZoom from 'medium-zoom';
+
+  const images = document.querySelectorAll<HTMLImageElement>('.prose img:not([data-no-zoom])');
+
+  // Zoom to the largest size in the srcset rather than the one fitted to the column
+  images.forEach((img) => {
+    const largest = img.srcset.split(',').at(-1)?.trim().split(' ')[0];
+    if (largest) img.dataset.zoomSrc = largest;
+  });
+
+  mediumZoom(images, { background: 'rgba(0,0,0,0.85)' });
+</script>

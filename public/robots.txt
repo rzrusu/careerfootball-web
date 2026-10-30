@@ -1,0 +1,3 @@
+User-agent: *
+
+Sitemap: https://footballcareer.app/sitemap.xml

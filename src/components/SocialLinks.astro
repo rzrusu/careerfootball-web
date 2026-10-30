@@ -1,0 +1,20 @@
+---
+import Icon from './Icon.astro';
+
+const links = [
+  { href: 'https://www.tiktok.com/@playfootballcareer', icon: 'baseline-tiktok', size: 24, label: 'TikTok' },
+  { href: 'https://www.youtube.com/@playfootballcareer', icon: 'youtube', size: 24, label: 'YouTube' },
+  { href: 'https://discord.gg/hwDFc2S94Y', icon: 'baseline-discord', size: 24, label: 'Discord' },
+  { href: 'https://x.com/careerfootball', icon: 'twitter', size: 20, label: 'X' },
+];
+
+const { class: className } = Astro.props;
+---
+
+<ul class={className}>
+  {links.map((link) => (
+    <li>
+      <a href={link.href} aria-label={link.label}><Icon name={link.icon} size={link.size} /></a>
+    </li>
+  ))}
+</ul>

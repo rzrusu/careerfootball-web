@@ -1,0 +1,101 @@
+---
+// Usable from .mdx blog posts: <Carousel images={['/blog/a.png', { src: '/blog/b.png', alt: '...', caption: '...' }]} />
+type CarouselImage = string | { src: string; alt?: string; caption?: string };
+
+interface Props {
+  images?: CarouselImage[];
+  initialIndex?: number;
+  loop?: boolean;
+  autoplay?: boolean;
+  intervalMs?: number;
+  showArrows?: boolean;
+  showIndicators?: boolean;
+}
+
+const { images = [], initialIndex = 0, loop = true, autoplay = false, intervalMs = 5000, showArrows = true, showIndicators = true } = Astro.props;
+
+const slides = images.map((img) => (typeof img === 'string' ? { src: img, alt: '', caption: undefined } : img));
+---
+
+<div data-carousel data-index={initialIndex} data-loop={String(loop)} data-autoplay={String(autoplay)} data-interval={intervalMs} class="relative w-full">
+  <div class="relative overflow-hidden rounded-lg pb-6">
+    <div data-track class="flex transition-transform duration-500 ease-out" style={`transform: translateX(-${initialIndex * 100}%)`}>
+      {slides.map((slide) => (
+        <div class="w-full shrink-0 select-none">
+          <img src={slide.src} alt={slide.alt ?? ''} class="w-full h-auto object-contain cursor-zoom-in" data-no-zoom draggable="false" loading="lazy" />
+          {slide.caption && <div class="text-center text-sm text-gray-600 mt-2">{slide.caption}</div>}
+        </div>
+      ))}
+    </div>
+
+    {showArrows && slides.length > 1 && (
+      <>
+        <button type="button" data-prev class="absolute left-2 top-1/2 -translate-y-1/2 z-10 inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/80 hover:bg-white shadow cursor-pointer" aria-label="Previous slide">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button type="button" data-next class="absolute right-2 top-1/2 -translate-y-1/2 z-10 inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/80 hover:bg-white shadow cursor-pointer" aria-label="Next slide">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+      </>
+    )}
+  </div>
+
+  {showIndicators && slides.length > 1 && (
+    <div class="absolute inset-x-0 bottom-0 flex items-center justify-center gap-2">
+      {slides.map((_, i) => (
+        <button type="button" data-dot class:list={['h-2 rounded-full transition-all duration-300 bg-gray-300 hover:bg-gray-400', i === initialIndex ? 'w-6 bg-gray-600' : 'w-2']} aria-label={`Go to slide ${i + 1}`} />
+      ))}
+    </div>
+  )}
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((root) => {
+    const track = root.querySelector<HTMLElement>('[data-track]')!;
+    const dots = [...root.querySelectorAll<HTMLElement>('[data-dot]')];
+    const count = track.children.length;
+    const loop = root.dataset.loop === 'true';
+    let current = Number(root.dataset.index);
+    let hovering = false;
+    let downX: number | null = null;
+
+    const goTo = (index: number) => {
+      if (count === 0) return;
+      current = loop ? ((index % count) + count) % count : Math.max(0, Math.min(index, count - 1));
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('w-6', i === current);
+        dot.classList.toggle('bg-gray-600', i === current);
+        dot.classList.toggle('w-2', i !== current);
+      });
+    };
+
+    root.querySelector('[data-prev]')?.addEventListener('click', () => goTo(current - 1));
+    root.querySelector('[data-next]')?.addEventListener('click', () => goTo(current + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') goTo(current + 1);
+      if (e.key === 'ArrowLeft') goTo(current - 1);
+    });
+
+    const onUp = (x: number) => {
+      if (downX === null) return;
+      const delta = x - downX;
+      downX = null;
+      if (Math.abs(delta) > 40) goTo(current + (delta < 0 ? 1 : -1));
+    };
+    root.addEventListener('mouseenter', () => (hovering = true));
+    root.addEventListener('mouseleave', () => (hovering = false));
+    root.addEventListener('mousedown', (e) => (downX = e.clientX), { passive: true });
+    root.addEventListener('mouseup', (e) => onUp(e.clientX), { passive: true });
+    root.addEventListener('touchstart', (e) => (downX = e.touches[0].clientX), { passive: true });
+    root.addEventListener('touchend', (e) => onUp(e.changedTouches[0].clientX), { passive: true });
+
+    if (root.dataset.autoplay === 'true' && count > 1) {
+      setInterval(() => {
+        if (!hovering) goTo(current + 1);
+      }, Number(root.dataset.interval));
+    }
+  });
+</script>

@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import star from '../assets/star.svg';
+
+interface Props {
+  leftaligned?: boolean;
+  title: string;
+  text: string;
+  image: ImageMetadata;
+  gray?: boolean;
+  bulletpoints?: string[];
+}
+
+const { leftaligned, title, text, image, gray, bulletpoints = [] } = Astro.props;
+---
+
+<div class:list={{ 'bg-gray-100': gray }}>
+  <div class="grid px-4 md:px-0 grid-cols-1 md:grid-cols-4 py-24 items-center gap-24 max-w-7xl mx-auto w-full">
+    <div class:list={['space-y-5 flex flex-col justify-center md:justify-start w-full col-span-2', { 'order-last': !leftaligned }]}>
+      <h2 class="font-work font-semibold text-5xl title text-[#1F1F1F] w-full md:w-2/3 text-center md:text-left">
+        {title.toUpperCase()}
+      </h2>
+      <p class="text-[#4D4D4D] w-full md:w-4/5 text-center md:text-left">
+        {text}
+      </p>
+      <div class="space-y-2">
+        {bulletpoints.map((point) => (
+          <div class="text-[#4D4D4D] font-semibold flex items-center space-x-2">
+            <img src={star.src} alt="" width="20" height="20" class="w-5 h-5 inline-block mr-2" />
+            {point}
+          </div>
+        ))}
+      </div>
+    </div>
+    <Image
+      src={image}
+      alt="Football Feature Image"
+      widths={[400, 533, 800, 1066]}
+      sizes="(min-width: 768px) min(45vw, 533px), 100vw"
+      class="w-full md:w-[90%] h-auto self-end rounded-lg min-h-96 col-span-2"
+    />
+  </div>
+</div>

@@ -1,0 +1,23 @@
+---
+interface Props {
+  name: string;
+  size: number;
+}
+
+const icons = import.meta.glob<string>('../icons/*.svg', { query: '?raw', import: 'default', eager: true });
+
+const { name, size } = Astro.props;
+const svg = icons[`../icons/${name}.svg`];
+if (!svg) throw new Error(`Unknown icon: ${name}`);
+
+const inner = svg.replace(/^<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '');
+const viewBox = svg.match(/viewBox="([^"]+)"/)?.[1];
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox={viewBox}
+  aria-hidden="true"
+  style={`display:inline-block;vertical-align:baseline;width:1em;height:1em;font-size:${size}px`}
+  set:html={inner}
+/>

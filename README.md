@@ -2,74 +2,41 @@
 
 This website is live @ [footballcareer.app](https://footballcareer.app)
 
+Built with [Astro](https://astro.build) and Tailwind CSS. It ships as static HTML, with a few small scripts for the interactive parts.
+
 ## Setup
 
-Make sure to install the dependencies:
+Requires Node 22.23.4 or newer.
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
 ## Development Server
 
-Start the development server on `http://localhost:3000`:
+Start the development server on `http://localhost:4321`:
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
 ## Production
 
-Build the application for production:
+Build the site to `dist/`, then preview it locally:
 
 ```bash
-# npm
 npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
 npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Pushes to `main` deploy to GitHub Pages through `.github/workflows/deploy.yml`.
+
+## Blog posts
+
+Add a Markdown file to `src/content/blog/` with `title`, `description`, `date`, `author`, `type` and an optional `image` in its frontmatter. Put images in `src/assets/blog/` and reference them with a relative path so they get optimized:
+
+```md
+![Mail inbox](../../assets/blog/mail-feature@2x.png)
+```
+
+To use components in a post, name the file `.mdx` and import them, for example `Carousel` from `src/components/Carousel.astro`.

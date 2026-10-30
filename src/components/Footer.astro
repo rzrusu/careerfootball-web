@@ -1,0 +1,32 @@
+---
+import SocialLinks from './SocialLinks.astro';
+---
+
+<footer class="w-full border-t border-gray-200 py-8 flex flex-col items-center justify-center space-y-4 mt-16">
+  <div class="max-w-7xl mx-auto py-8 px-4 lg:px-16 2xl:px-0">
+    <div class="flex flex-col items-center justify-center space-y-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div class="flex flex-col items-center justify-center space-y-4 text-gray-600">
+          <p class="text-lg font-bold">CONTACT</p>
+          <p class="text-sm text-gray-500">hello@footballcareer.app</p>
+        </div>
+        <div class="flex flex-col items-center justify-center space-y-4 text-gray-600">
+          <p class="text-lg font-bold">CONNECT</p>
+          <SocialLinks class="flex justify-between space-x-6 media text-gray-500" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="/privacy-policy" class="text-sm text-gray-500 w-fit">Privacy Policy</a>
+  <p class="text-center text-sm text-gray-400">© 2025 Football Career. All rights reserved.</p>
+</footer>
+
+<style is:global>
+  footer .media li {
+    @apply px-2;
+  }
+
+  footer .media a {
+    @apply text-black font-semibold hover:text-gray-800 transition;
+  }
+</style>
