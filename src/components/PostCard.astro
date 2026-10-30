@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  layout?: 'stacked' | 'wide' | 'row';
+  sizes?: string;
+}
+
+const { post, layout = 'stacked', sizes = '(min-width: 1024px) 400px, 100vw' } = Astro.props;
+const { title, description, date, type, image } = post.data;
+const big = layout !== 'row';
+---
+
+<a
+  href={`/blog/${post.id}`}
+  class:list={[
+    'card-edge group flex overflow-hidden rounded-[20px] border border-[#e6e6e6] bg-white h-full',
+    { 'flex-col': layout === 'stacked', 'flex-col lg:flex-row': layout === 'wide', 'flex-row': layout === 'row' },
+  ]}
+>
+  {image && (
+    <Image
+      src={image}
+      alt=""
+      widths={[400, 720, 1024, 1280]}
+      {sizes}
+      class:list={[
+        'object-cover shrink-0',
+        { 'w-full h-auto': layout === 'stacked', 'w-full lg:w-3/5 h-auto': layout === 'wide', 'w-[104px] lg:w-[150px] h-auto': layout === 'row' },
+      ]}
+    />
+  )}
+  <div class:list={['flex flex-col justify-center gap-3', big ? 'p-[18px] lg:p-6' : 'p-3.5 lg:p-5']}>
+    <div class="flex items-center gap-2.5">
+      <span class="rounded-full bg-[#e4f4d7] px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-[0.06em] text-[#2e7d0f]">{type}</span>
+      <span class="text-[13px] font-bold text-[#6b7075]">{date}</span>
+    </div>
+    <h3 class:list={['font-black leading-[1.1] group-hover:text-[#1a6ff0] transition-colors', big ? 'text-2xl lg:text-[32px]' : 'text-[17px] lg:text-[22px]']}>{title}</h3>
+    <p class:list={['font-medium text-[#55595e] leading-[1.4]', big ? 'text-[15px] lg:text-[17px]' : 'text-[13px] lg:text-[15px]']}>{description}</p>
+  </div>
+</a>

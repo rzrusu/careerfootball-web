@@ -1,172 +1,314 @@
 ---
-import { Image, getImage } from 'astro:assets';
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import PrimaryButton from '../components/PrimaryButton.astro';
-import DiscordButton from '../components/DiscordButton.astro';
-import Section from '../components/Section.astro';
-import SubFeature from '../components/SubFeature.astro';
-import Question from '../components/Question.astro';
-import Footer from '../components/Footer.astro';
-import phones from '../assets/phones.webp';
-import match from '../assets/features/match.webp';
-import matchMobile from '../assets/features/match-mobile.webp';
-import f1 from '../assets/features/f1.webp';
-import f2 from '../assets/features/f2.webp';
-import f3 from '../assets/features/f3.webp';
-import f4 from '../assets/features/f4.webp';
+import Button from '../components/Button.astro';
+import Nav from '../components/Nav.astro';
+import Phone from '../components/Phone.astro';
+import PostCard from '../components/PostCard.astro';
+import { DISCORD_URL } from '../consts';
+import home from '../assets/site/home.webp';
+import match from '../assets/site/match.webp';
+import decision from '../assets/site/decision.webp';
+import skills from '../assets/site/skills.webp';
+import xp from '../assets/site/xp.webp';
+import training from '../assets/site/training.webp';
+import lastweek from '../assets/site/lastweek.webp';
+import fitness from '../assets/site/fitness.webp';
+import offers from '../assets/site/offers.webp';
+import deal from '../assets/site/deal.webp';
+import welcome from '../assets/site/welcome.webp';
+import people from '../assets/site/people.webp';
+import todo from '../assets/site/todo.webp';
+import money from '../assets/site/money.webp';
+import head from '../assets/site/head.webp';
+import languages from '../assets/site/languages.webp';
+import property from '../assets/site/property.webp';
+import post1 from '../assets/site/post1.webp';
+import post2 from '../assets/site/post2.webp';
+import post3 from '../assets/site/post3.webp';
+import post4 from '../assets/site/post4.webp';
+import post5 from '../assets/site/post5.webp';
+import post6 from '../assets/site/post6.webp';
+import av1 from '../assets/site/av1.webp';
+import av2 from '../assets/site/av2.webp';
+import av3 from '../assets/site/av3.webp';
 
-const screenshotFiles = import.meta.glob<{ default: ImageMetadata }>('../assets/screenshots/*.webp', { eager: true });
-const screenshots = Array.from({ length: 11 }, (_, i) => screenshotFiles[`../assets/screenshots/${i + 1}.webp`].default);
+const description = 'Become a pro footballer and live out your dream of being a superstar. Play for the biggest clubs, score goals, win awards and build a fortune along the way.';
 
-const description = 'Football Career is a mobile text-based simulation game where you live the dream of becoming a football legend. Train your skills, sign with top teams, and rise to greatness on and off the pitch.';
-const title = 'Football Career - Become a football superstar';
+const posts = (await getCollection('blog')).sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
+const [latest, ...older] = posts;
+const sidePosts = older.slice(0, 2);
 
-const heroImage = await getImage({ src: phones, widths: [420, 575, 840, 1150] });
+const stats = [['50+', 'Leagues'], ['800+', 'Clubs'], ['24', 'Countries']];
+
+const steps = [
+  { src: offers, label: 'Clubs Come Calling', short: 'The Offers', alt: 'Choosing between contract offers from several clubs', tilt: -3 },
+  { src: deal, label: 'Sign the Deal', short: 'The Deal', alt: 'Signing a scholarship agreement', tilt: 0 },
+  { src: welcome, label: 'Start Your New Chapter', short: 'The Move', alt: 'A new club shirt with the player name and number', tilt: 3 },
+];
+
+const tiles = {
+  people: { title: 'Your People', text: "Partners, family, friends and teammates. Look after them, or don't.", bg: '#fbd9e3', fg: '#b8254f' },
+  todo: { title: 'Things to Do', text: 'Nights out, holidays, dating, shopping and pets.', bg: '#dcebff', fg: '#1558c0' },
+  money: { title: 'Your Money', text: 'Wages, lifestyle and net worth. Spend it well.', bg: '#d8f0de', fg: '#1f7a3a' },
+  head: { title: 'Your Head', text: 'Morale, well-being and even a new language when you move abroad.', bg: '#fbebc8', fg: '#9a6500' },
+  property: { title: 'Property', text: 'Buy a home, rent it out or build a portfolio. Then move clubs and do it again.', bg: '#d5f1ee', fg: '#0f6f68' },
+};
+
+const podium = [
+  { place: 2, name: 'Diego Alves', club: 'Real Madrid', avatar: av2, block: 'h-[96px] lg:h-[158px] bg-[#22242c] text-white', face: 'w-12 lg:w-20' },
+  { place: 1, name: 'You', club: 'Man Utd', avatar: av1, block: 'h-[128px] lg:h-[211px] bg-[#f5b700] text-[#1a1a1a]', face: 'w-16 lg:w-[106px]' },
+  { place: 3, name: 'Kenji Mori', club: 'Bayern', avatar: av3, block: 'h-[72px] lg:h-[119px] bg-[#22242c] text-white', face: 'w-12 lg:w-20' },
+];
+const awardsLeft = ['League Titles', 'Domestic Cups', 'Top Scorer'];
+const awardsRight = ['Team of the Season', 'Player of the Season', 'World Player of the Year'];
+const confetti = [
+  ['3%', '19%', '#fff', 20], ['82%', '23%', '#fff', 60], ['97%', '24%', '#fff', 15], ['95%', '32%', '#27c4ff', 150],
+  ['24%', '59%', '#8ce000', 130], ['23%', '61%', '#ffd23f', 100], ['92%', '-1%', '#ff7a1a', 160],
+];
+
+const facts = [
+  ['Release Date', 'Not Yet', "Too early to call. We'll announce it on Discord.", '#1a6ff0'],
+  ['Price', 'Free', 'The core game will always be free to play.', '#2e8a0e'],
+  ['Purchases', 'Optional', 'Never needed to enjoy the full base game.', '#e8590c'],
+  ['Ads', 'Removable', 'A one-off purchase turns them off for good.', '#b8254f'],
+  ['Internet', 'Not Needed', 'Only for optional extras like leaderboards.', '#7a2be2'],
+  ['Language', 'English First', 'More to come if there is demand.', '#0f6f68'],
+];
+
+const heroSizes = '(min-width: 1024px) 312px, 200px';
+const cardSizes = '(min-width: 1024px) 340px, 320px';
 ---
 
-<Base title={title} description={description} twitterTitle={title} twitterDescription={description} twitterCard="summary" bodyClass="uses_bg" preloadBackground="/backgrounds/ball-bg.webp">
-  <link slot="head" rel="preload" as="image" media="(min-width: 768px)" imagesrcset={heroImage.srcSet.attribute} imagesizes="(min-width: 1536px) 575px, 420px" />
-  <div class="space-y-48 mt-24 md:mt-0 px-4 lg:px-16 2xl:px-0 2xl:max-w-7xl mx-auto py-2 2xl:space-y-4">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-0 mb-48">
-      <div class="flex flex-col justify-start md:justify-center h-auto w-full space-y-16">
-        <div class="flex flex-col space-y-4">
-          <h1 class="uppercase font-bold font-work w-full text-5xl    lg:text-[72px] 2xl:text-[86px] title text-[#1F1F1F]">Become a football superstar</h1>
-          <h2 class="text-2xl md:text-4xl font-bold font-work text-[#1F1F1F] uppercase">Train. Play. Win.</h2>
-          <p class="2xl:text-lg text-[#4D4D4D] w-2/3">
-            Football Career is a mobile text-based simulation game where you live the dream of becoming a football legend. Train your skills, sign with top teams, and rise to greatness on and off the pitch.
-          </p>
+<Base title="From Prospect to Legend" {description}>
+  <section class="stadium relative overflow-hidden px-4 pt-[38px] lg:pt-[58px]" style="--shade: linear-gradient(90deg, rgba(5,23,59,.86), rgba(5,23,59,.68) 45%, rgba(5,23,59,.2));">
+    <Nav />
+    <div class="relative max-w-[1200px] mx-auto mt-[76px] lg:mt-16 grid lg:grid-cols-[648px_1fr] gap-9 lg:gap-8 items-center">
+      <div class="relative z-10 flex flex-col gap-6 lg:gap-8">
+        <div class="flex flex-col gap-2.5 lg:gap-3.5">
+          <p class="text-[13px] lg:text-base font-extrabold uppercase tracking-[0.08em] text-[#ffd140]">Coming Soon for Mobile Devices</p>
+          <h1 class="text-[44px] lg:text-[82px] font-black text-white leading-[0.96] [text-shadow:0_3px_18px_rgba(5,23,59,.55)]">From Prospect<br />to Legend.</h1>
         </div>
-        <div class="inline-flex items-center space-x-2">
-          <PrimaryButton href="/blog">Development Blog</PrimaryButton>
-          <DiscordButton href="https://discord.gg/hwDFc2S94Y"/>
+        <p class="text-[17px] lg:text-[21px] font-medium text-[#ccd4de] leading-[1.35] [text-shadow:0_1px_8px_rgba(5,23,59,.6)]">{description}</p>
+        <div class="flex flex-col lg:flex-row gap-3.5 lg:gap-4">
+          <Button href={DISCORD_URL}>Join Discord</Button>
+          <Button href="#features" variant="secondary">See How It Plays</Button>
         </div>
+        <dl class="flex items-center gap-[18px] lg:gap-8 pt-1.5 lg:pt-3 text-white">
+          {stats.map(([n, l], i) => (
+            <>
+              {i > 0 && <span class="w-px h-[34px] lg:h-11 bg-white/30"></span>}
+              <div class="flex flex-col-reverse gap-0.5">
+                <dt class="text-[13px] lg:text-[15px] font-medium text-white/80">{l}</dt>
+                <dd class="text-[26px] lg:text-[34px] font-black leading-none">{n}</dd>
+              </div>
+            </>
+          ))}
+        </dl>
       </div>
-      <div class="inline-flex justify-center 2xl:justify-end h-full hidden md:block">
-        <Image src={phones}
-                 alt="Football Career game interface displayed on multiple mobile phones"
-                 widths={[420, 575, 840, 1150]}
-                 sizes="(min-width: 1536px) 575px, 420px"
-                 class="w-2/3 h-auto md:w-[420px] md:h-[484px] 2xl:w-[575px] 2xl:h-[663px]" />
+      <div class="relative h-[430px] lg:h-[710px] lg:-mb-2" style="--ray: rgba(255, 216, 74, 0.5);">
+        <div class="absolute aspect-square w-[860px] lg:w-[1280px] left-1/2 top-[48%] -translate-x-[45%] -translate-y-1/2"><div class="rays anim-spin w-full"></div></div>
+        <div class="glow anim-breathe w-4/5 h-3/5 left-[15%] top-[18%] bg-[#ffc21f]/40"></div>
+        <div class="glow anim-breathe w-[95%] h-4/5 left-[2%] top-[8%] bg-[#27a4ff]/40" style="animation-delay:-4s"></div>
+        <Phone src={match} alt="A live match with minute by minute commentary" sizes={heroSizes} class="anim-hover absolute w-[56%] lg:w-[57%] right-0 top-3 lg:top-[50px] -rotate-[7deg]" style="animation-duration:7.5s;animation-delay:-3s" />
+        <Phone src={home} alt="The career home screen with league standings, followers and inbox" sizes={heroSizes} eager class="anim-hover absolute w-[60%] lg:w-[62%] left-0 top-8 lg:top-[84px] rotate-[5deg]" />
+        <span style="animation-delay:0s;animation-duration:9s" class="confetti anim-drift bg-[#ffd23f] left-[3%] top-[4%] rotate-[40deg]"></span>
+        <span style="animation-delay:-2s;animation-duration:11s" class="confetti anim-drift bg-[#8ce000] left-[60%] top-0 rotate-[110deg]"></span>
+        <span style="animation-delay:-5s;animation-duration:10s" class="confetti anim-drift bg-[#27c4ff] right-0 top-[20%] rotate-[20deg]"></span>
+        <span style="animation-delay:-7s;animation-duration:12s" class="confetti anim-drift bg-white left-[85%] top-[4%] rotate-[150deg]"></span>
+        <span style="animation-delay:-3s;animation-duration:8s" class="confetti anim-drift bg-[#ff7a1a] -left-[2%] top-[42%] rotate-[70deg]"></span>
       </div>
     </div>
-    <div class="w-full flex flex-col items-center justify-center">
-      <h1 class="uppercase font-bold font-work text-3xl title text-[#1F1F1F] mb-12">Screenshots</h1>
+  </section>
 
-      <div class="relative">
-        <div id="screenshots" class="relative w-full flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
-          {screenshots.map((src, i) => (
-            <div class="flex flex-none snap-center">
-              <div class="px-4">
-                <Image src={src}
-                       alt={`Football Career gameplay screenshot ${i + 1}`}
-                       width={320} height={650} densities={[1, 2]} draggable="false"/>
-              </div>
+  {latest && (
+    <section class="px-4 py-14 lg:py-[88px]">
+      <div class="max-w-[1200px] mx-auto">
+        <div class="flex items-center justify-between mb-6 lg:mb-9">
+          <h2 class="text-[32px] lg:text-5xl font-black">Latest News</h2>
+          <Button href="/blog" variant="dark" class="px-4 lg:px-[22px] py-[9px] lg:py-3 text-sm lg:text-base">View All</Button>
+        </div>
+        {sidePosts.length ? (
+          <div class="grid lg:grid-cols-[720px_1fr] gap-[18px] lg:gap-6">
+            <PostCard post={latest} sizes="(min-width: 1024px) 720px, 100vw" />
+            <div class="flex flex-col gap-[18px] lg:gap-6">
+              {sidePosts.map((post) => <PostCard {post} layout="row" sizes="150px" />)}
             </div>
+          </div>
+        ) : (
+          <PostCard post={latest} layout="wide" sizes="(min-width: 1024px) 720px, 100vw" />
+        )}
+      </div>
+    </section>
+  )}
+
+  <section id="features" class="bg-[#f3f5f8] px-4 py-14 lg:py-24 scroll-mt-4">
+    <div class="max-w-[1200px] mx-auto grid lg:grid-cols-[468px_660px] gap-8 lg:gap-[72px] items-center">
+      <div class="flex flex-col gap-4 lg:gap-[22px]">
+        <p class="text-[13px] lg:text-[15px] font-extrabold uppercase tracking-[0.08em] text-[#1a6ff0]">Matches</p>
+        <h2 class="text-[38px] lg:text-[56px] font-black leading-[1.02]">Play Every Match Your Way</h2>
+        <p class="text-[17px] lg:text-xl font-medium text-[#555b63] leading-[1.45]">Follow the action minute by minute. When a big moment comes, choose your move, then pull it off yourself.</p>
+      </div>
+      <div class="relative overflow-hidden rounded-3xl lg:rounded-[36px] aspect-[358/470] lg:aspect-[660/680] bg-gradient-to-br from-[#2a8bff] to-[#0a2e7a]" style="--ray: rgba(255, 255, 255, 0.28); --ray-blur: 0px;">
+        <div class="rays w-[190%] left-1/2 top-[48%] -translate-x-1/2 -translate-y-1/2"></div>
+        <Phone src={match} alt="A live match with minute by minute commentary" sizes="(min-width: 1024px) 320px, 200px" class="absolute w-[55%] lg:w-[48%] left-[3%] lg:left-[15%] top-[10%] rotate-[4deg]" />
+        <Image src={decision} alt="A match decision: shout for it and run, wait for a better opening, or drop back and defend" widths={[220, 300, 440, 636]} sizes="(min-width: 1024px) 292px, 200px" class="absolute w-[55%] lg:w-[44%] right-[3%] lg:right-[5%] top-[22%] -rotate-[4deg] h-auto drop-shadow-2xl" />
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 py-14 lg:py-[104px]">
+    <div class="max-w-[940px] mx-auto text-center flex flex-col gap-3.5 lg:gap-[18px] mb-7 lg:mb-12">
+      <p class="text-[13px] lg:text-[15px] font-extrabold uppercase tracking-[0.08em] text-[#e8590c]">Skills</p>
+      <h2 class="text-[38px] lg:text-6xl font-black leading-[1.02]">Build the Player You Want</h2>
+      <p class="text-[17px] lg:text-xl font-medium text-[#555b63] leading-[1.45]">Earn XP from matches and training, then spend it on the skills that suit your game.</p>
+    </div>
+    <div class="relative overflow-hidden max-w-[1200px] mx-auto rounded-3xl lg:rounded-[36px] h-[520px] lg:h-[600px] bg-gradient-to-b from-[#ffa12e] to-[#e4500a]">
+      <Phone src={skills} alt="The skills screen, spending XP on technical skills" sizes="(min-width: 1024px) 333px, 215px" class="absolute w-[60%] lg:w-[333px] left-1/2 -translate-x-1/2 top-6 lg:top-[20px]" />
+      <Image src={lastweek} alt="Last week's training summary" widths={[220, 322, 644]} sizes="(min-width: 1024px) 322px, 200px" class="float-card absolute h-auto w-[56%] lg:w-[27%] right-2 lg:right-[5%] bottom-6 lg:bottom-auto lg:top-[8%] rotate-[3deg] lg:rotate-[4deg]" />
+      <Image src={xp} alt="XP and cash balances" widths={[358, 716]} sizes="358px" class="float-card absolute h-auto hidden lg:block w-[30%] left-[5%] top-[10%] -rotate-[4deg]" />
+      <Image src={training} alt="Choosing a training focus and intensity" widths={[308, 616]} sizes="308px" class="float-card absolute h-auto hidden lg:block w-[26%] left-[6%] top-[37%] -rotate-[3deg]" />
+      <Image src={fitness} alt="Condition, sharpness and injury risk" widths={[322, 644]} sizes="322px" class="float-card absolute h-auto hidden lg:block w-[27%] right-[5%] top-[52%] -rotate-[3deg]" />
+    </div>
+  </section>
+
+  <section class="bg-gradient-to-b from-[#0a1838] to-[#123a8c] px-4 pt-14 lg:pt-24 overflow-hidden">
+    <div class="max-w-[1200px] mx-auto">
+      <div class="grid lg:grid-cols-[640px_1fr] gap-3.5 lg:gap-16 lg:items-end mb-8 lg:mb-14">
+        <div class="flex flex-col gap-3 lg:gap-4">
+          <p class="text-[13px] lg:text-[15px] font-extrabold uppercase tracking-[0.08em] text-[#6fb4ff]">Transfers</p>
+          <h2 class="text-[38px] lg:text-[64px] font-black text-white leading-none">Earn Your Big Move</h2>
+        </div>
+        <p class="text-[17px] lg:text-xl font-medium text-[#c4cfe2] leading-[1.45]">Play well and bigger clubs come calling. Weigh up the offers, sign the deal and prove yourself all over again.</p>
+      </div>
+      <ol class="grid grid-cols-3 gap-1 lg:gap-6">
+        {steps.map((step, i) => (
+          <li class="flex flex-col items-center gap-3 lg:gap-8">
+            <p class="flex items-center gap-2.5 text-[13px] lg:text-lg font-extrabold text-white">
+              <span class="hidden lg:grid place-items-center w-7 h-7 rounded-full bg-[#ffd23f] text-[#1a1a1a] text-sm font-black">{i + 1}</span>
+              <span class="hidden lg:inline">{step.label}</span>
+              <span class="lg:hidden">{step.short}</span>
+            </p>
+            <div class:list={['h-[250px] lg:h-[500px] w-full flex justify-center overflow-hidden lg:overflow-visible', { 'lg:pt-7 pt-3': i !== 1 }]}>
+              <Phone src={step.src} alt={step.alt} sizes="(min-width: 1024px) 276px, 160px" class="w-[150px] lg:w-[276px] shrink-0 self-start" style={`rotate: ${step.tilt}deg`} />
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="bg-[#fff9f2] px-4 py-14 lg:py-[104px]">
+    <div class="max-w-[1200px] mx-auto grid lg:grid-cols-3 gap-4 lg:gap-6">
+      <div class="flex flex-col gap-4 lg:gap-6">
+        <div class="flex flex-col gap-3.5 lg:gap-4 lg:pb-4">
+          <p class="text-[13px] lg:text-[15px] font-extrabold uppercase tracking-[0.08em] text-[#b8254f]">Life Off the Pitch</p>
+          <h2 class="text-[38px] lg:text-[54px] font-black leading-[1.02]">Football Is Only Half of It</h2>
+          <p class="text-[17px] lg:text-[19px] font-medium text-[#555b63] leading-[1.45]">Fall in love, buy a house, fall out with your dad. What you do between matches matters.</p>
+        </div>
+        <article class="hidden lg:block flex-1 rounded-[28px] p-6" style={`background:${tiles.head.bg}`}>
+          <h3 class="text-[28px] font-black" style={`color:${tiles.head.fg}`}>{tiles.head.title}</h3>
+          <p class="mt-1.5 mb-4 font-medium text-[#3c3f44] leading-[1.35]">{tiles.head.text}</p>
+          <div class="flex flex-col gap-4 px-2">
+            <Image src={head} alt="Morale and well-being bars" widths={[320, 640]} sizes={cardSizes} class="float-card w-full h-auto" />
+            <Image src={languages} alt="Language progress" widths={[320, 640]} sizes={cardSizes} class="float-card w-full h-auto" />
+          </div>
+        </article>
+      </div>
+      <div class="flex flex-col gap-4 lg:gap-6">
+        <article class="rounded-[28px] p-6" style={`background:${tiles.people.bg}`}>
+          <h3 class="text-2xl lg:text-[28px] font-black" style={`color:${tiles.people.fg}`}>{tiles.people.title}</h3>
+          <p class="mt-1.5 mb-4 font-medium text-[#3c3f44] leading-[1.35]">{tiles.people.text}</p>
+          <Image src={people} alt="Partner, family, friends, teammates and manager relationships" widths={[320, 640]} sizes={cardSizes} class="float-card w-full h-auto" />
+        </article>
+        <article class="hidden lg:block flex-1 rounded-[28px] p-6" style={`background:${tiles.property.bg}`}>
+          <h3 class="text-[28px] font-black" style={`color:${tiles.property.fg}`}>{tiles.property.title}</h3>
+          <p class="mt-1.5 mb-5 font-medium text-[#3c3f44] leading-[1.35]">{tiles.property.text}</p>
+          <Image src={property} alt="Two properties owned, earning money each month" widths={[320, 640]} sizes={cardSizes} class="float-card w-full h-auto" />
+        </article>
+      </div>
+      <div class="flex flex-col gap-4 lg:gap-6">
+        <article class="overflow-hidden rounded-[28px] p-6 pb-0 h-[360px] lg:h-[410px]" style={`background:${tiles.todo.bg}`}>
+          <h3 class="text-2xl lg:text-[28px] font-black" style={`color:${tiles.todo.fg}`}>{tiles.todo.title}</h3>
+          <p class="mt-1.5 mb-4 font-medium text-[#3c3f44] leading-[1.35]">{tiles.todo.text}</p>
+          <Image src={todo} alt="Activities, dating, shopping and pets" widths={[320, 640]} sizes={cardSizes} class="float-card w-full h-auto" />
+        </article>
+        <article class="flex-1 rounded-[28px] p-6" style={`background:${tiles.money.bg}`}>
+          <h3 class="text-2xl lg:text-[28px] font-black" style={`color:${tiles.money.fg}`}>{tiles.money.title}</h3>
+          <p class="mt-1.5 mb-4 font-medium text-[#3c3f44] leading-[1.35]">{tiles.money.text}</p>
+          <Image src={money} alt="Balance, net worth, lifestyle, home and wages" widths={[320, 640]} sizes={cardSizes} class="float-card w-full h-auto" />
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative overflow-hidden bg-gradient-to-br from-[#7a2be2] to-[#e0307e] px-4 pt-12 lg:pt-0 h-[760px] lg:h-[720px]">
+    <div class="max-w-[1200px] mx-auto h-full lg:flex lg:items-center">
+      <div class="relative z-10 flex flex-col gap-3.5 lg:gap-5 lg:w-[500px]">
+        <p class="text-[13px] lg:text-[15px] font-extrabold uppercase tracking-[0.08em] text-[#ffd23f]">Social Media</p>
+        <h2 class="text-[38px] lg:text-[64px] font-black text-white leading-none">Everyone Has an Opinion</h2>
+        <p class="text-[17px] lg:text-xl font-medium text-[#f5e3f5] leading-[1.45]">Fans, journalists, even your family. Have a good week and they love you. Have a bad one and you'll hear about it.</p>
+      </div>
+    </div>
+    <div class="absolute flex gap-3 lg:gap-[22px] -left-3.5 top-[300px] lg:left-1/2 lg:-translate-x-[120px] lg:top-0" aria-hidden="true">
+      <div class="flex flex-col gap-3 lg:gap-[22px] w-[229px] lg:w-[344px] lg:-mt-[70px]">
+        {[post1, post2, post3, post4].map((src) => <Image src={src} alt="" widths={[229, 344, 716]} sizes="(min-width: 1024px) 344px, 229px" class="float-card w-full h-auto" />)}
+      </div>
+      <div class="flex flex-col gap-3 lg:gap-[22px] w-[229px] lg:w-[344px] -mt-[46px] lg:-mt-[170px]">
+        {[post5, post6, post1, post2].map((src) => <Image src={src} alt="" widths={[229, 344, 716]} sizes="(min-width: 1024px) 344px, 229px" class="float-card w-full h-auto" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="relative overflow-hidden bg-gradient-to-b from-[#05241a] to-[#0c5a3a] px-4 pt-16 lg:pt-28" style="--ray: rgba(255, 216, 74, 0.1); --ray-blur: 5px;">
+    <div class="rays w-[1100px] lg:w-[1700px] left-1/2 bottom-[-30%] lg:bottom-[-60%] -translate-x-1/2"></div>
+    <div class="glow w-[360px] lg:w-[760px] h-[300px] lg:h-[460px] left-1/2 -translate-x-1/2 bottom-0 bg-[#ffc21f]/15"></div>
+    {confetti.map(([left, top, color, rotate]) => <span class="confetti hidden lg:block" style={`left:${left};top:${top};background:${color};rotate:${rotate}deg`}></span>)}
+    <div class="relative max-w-[1200px] mx-auto text-center">
+      <p class="text-[13px] lg:text-[15px] font-extrabold uppercase tracking-[0.08em] text-[#f5b700]">Awards</p>
+      <h2 class="mt-3.5 lg:mt-[18px] text-[40px] lg:text-7xl font-black text-white leading-none">Become the Best in the World</h2>
+      <p class="mt-3.5 lg:mt-[18px] mx-auto max-w-[800px] text-[17px] lg:text-xl font-medium text-[#d3e6db] leading-[1.45]">Win the league, lift the cups and collect the individual awards. Do it enough and you could finish top of the podium.</p>
+      <div class="relative mt-8 lg:mt-14 text-left">
+        <div class="flex justify-between gap-x-2 lg:contents mb-16">
+          {[awardsLeft, awardsRight].map((list, i) => (
+            <ul class:list={['flex flex-col gap-2 lg:gap-[18px] lg:absolute lg:bottom-[90px]', i === 0 ? 'lg:left-0' : 'lg:right-0']}>
+              {list.map((award) => (
+                <li class="flex items-center gap-1.5 lg:gap-2.5 text-[13px] lg:text-[21px] font-black text-white whitespace-nowrap">
+                  <svg class="w-3.5 h-3.5 lg:w-[22px] lg:h-[22px] shrink-0" viewBox="0 0 24 24" fill="#f5b700" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z" /></svg>
+                  {award}
+                </li>
+              ))}
+            </ul>
           ))}
         </div>
+        <ol class="flex items-end justify-center gap-2.5 lg:gap-4">
+          {podium.map((p) => (
+            <li class="flex flex-col items-center w-[110px] lg:w-[182px] text-center">
+              <Image src={p.avatar} alt="" widths={[128, 256]} sizes="106px" class:list={['h-auto rounded-full', p.face]} />
+              <p class:list={['mt-2 font-black text-white', p.place === 1 ? 'text-xl lg:text-[28px]' : 'text-[15px] lg:text-xl']}>{p.name}</p>
+              <p class="mt-1 mb-2 lg:mb-3 text-xs lg:text-[17px] font-medium text-[#d9ebe0]">{p.club}</p>
+              <div class:list={['w-full rounded-t-xl flex items-center justify-center text-[32px] lg:text-5xl font-black', p.block]}>{p.place}</div>
+            </li>
+          ))}
+        </ol>
       </div>
-    </div>  
-  </div>
-  <div class="w-full mt-48" id="features">
-    <Section title="Make your own journey" 
-            text="Create and customize your own character. Carve your own path throughout the major leagues of international football. Fight for you place among the greats." 
-            bulletpoints={['Build and train your skillset', 'Fight for a first-team spot', 'Impress scouts and coaches']} 
-            image={f1} 
-    />
-    <Section title="Carve your own story" 
-            leftaligned
-            text="Your character interacts with the people around them. Make friendships and rivalries, attend social and family events, and build a family with your lover." 
-            bulletpoints={['Make friendships and rivalries', 'Build a family with your partner', 'Organize and attend social events']} 
-            image={f4} 
-            gray/>
-    <div class="bg-green-800 py-24 px-4">
-      <div class="max-w-7xl flex flex-col items-center justify-center mx-auto space-y-8">
-        <h1 class="uppercase font-bold font-work text-2xl title text-[#A1E53E]">Match engine</h1>
-        <h1 class="uppercase font-bold font-work text-5xl text-center title text-white">Immersive match simulation</h1>
-          <Image src={match} 
-                   alt="Football Career match engine interface showing gameplay simulation" 
-                   class="hidden md:block w-full h-[40vw] lg:h-[30vw] object-cover rounded-xl"
-                   widths={[768, 1024, 1280, 1600, 2479]} sizes="min(100vw, 1280px)"/>
-          <Image src={matchMobile} 
-                   alt="Football Career match engine interface optimized for mobile devices" 
-                   class="block md:hidden w-full h-auto object-cover rounded-xl"
-                   widths={[400, 800, 1039]} sizes="100vw"/>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          <SubFeature title="Dynamic Decision Points" text="Step in with key decisions that shape the match's outcome. Will you play it safe or take a bold risk?" icon="skew"/>
-          <SubFeature title="Probability-Driven Realism" text="Smart probabilities bring the game to life, making every move feel authentic and unpredictable." icon="full-stacked-bar-chart"/>
-          <SubFeature title="Narrative-Rich Matches" text="Experience every thrilling moment through detailed, immersive text. From goals to saves, live the action." icon="stadium"/>
-          <SubFeature title="Player-Controlled Fate" text="Build your legacy one decision at a time, both on and off the pitch through various game events." icon="road-sign-both"/>
+    </div>
+    <div class="relative -mx-4 h-11 lg:h-16 bg-gradient-to-b from-[#f5b700] to-[#a86f00] border-t-4 border-[#ffe48a]" aria-hidden="true">
+      <div class="absolute inset-x-0 bottom-0 h-[42%] bg-[#7e5200]/55"></div>
+    </div>
+  </section>
+
+  <section class="px-4 py-14 lg:py-24">
+    <h2 class="text-center text-[38px] lg:text-[56px] font-black mb-6 lg:mb-10">Good to Know</h2>
+    <dl class="max-w-[1200px] mx-auto grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-5">
+      {facts.map(([label, value, text, color]) => (
+        <div class="flex flex-col gap-[5px] lg:gap-2 rounded-[20px] bg-[#f5f5f5] px-3.5 lg:px-6 py-4 lg:py-6 shadow-[0_4px_0_0_#e2e2e2]">
+          <dt class="text-[10px] lg:text-xs font-extrabold uppercase tracking-[0.08em]" style={`color:${color}`}>{label}</dt>
+          <dd class="text-[22px] lg:text-[32px] font-black leading-tight">{value}</dd>
+          <dd class="text-[13px] lg:text-base font-medium text-[#55595e] leading-[1.35]">{text}</dd>
         </div>
-      </div>
-    </div>
-    <Section title="Build your own empire" 
-            text="Sign high-value contracts with teams and invest your wealth on vehicles, properties, luxury items, and much more." 
-            bulletpoints={['Purchase real estate and vehicles', 'Build your personal brand', 'Impress others with your wealth', 'Live a luxurious life']} 
-            image={f3} />
-            <Section title="Conquer the world stage" 
-            leftaligned
-            text="Play for the biggest teams, sign high profile contracts, give interviews and gain fame, attend parties and events, expand your influence and network." 
-            bulletpoints={['Become a superstar', 'Make decisions off and on the pitch', 'Compete for the biggest trophies']} 
-            image={f2} 
-            gray 
-    />
-    </div>
-    <div class="w-full flex flex-col max-w-3xl mx-auto space-y-4 py-36 px-4 lg:px-0">
-      <h1 class="uppercase font-bold font-work text-4xl md:text-5xl title text-[#1F1F1F]">Frequently asked questions</h1>
-      <span class="text-[#4D4D4D]">Last updated 01/2025</span>
-      <div class="grid grid-cols-1 w-full gap-4">
-        <Question question="When will the game be released?"
-         answer="At this stage, it's too early in development for us to provide an accurate release date. We will share updates as we progress further. Stay up to date on our Discord (link below)."/>
-
-        <Question question="Will the game be free to play?" answer="Yes, the core game will always be free to play, and no purchases will ever be required to enjoy the complete base experience."/>
-        <Question question="Which devices will the game be available on?" answer="The game will initially launch on Google Play, available for Android devices. We plan to expand support to other platforms after a successful and stable launch."/>
-        <Question question="Will there be in-game purchases?" 
-        answer="Yes, we plan to offer optional microtransactions such as the ability to skip ads or have certain advantages in the game. However, no purchases will ever be necessary to play and enjoy the game."/>
-  
-        <Question question="What languages will be supported at launch?" answer="Initially, we plan to support English only, as the game is text-heavy. If the game launches successfully, we will consider adding more languages in the future based on demand."/>
-        <Question question="Will an internet connection be required to play?" answer="No, all essential game files and data will be stored on your device. An internet connection will only be needed for features like leaderboards and other social elements which are completely optional."/>
-        <Question question="Will there be ads in the game?" answer="Yes, we plan to include ads in the game as a way to support the development of the game. However, no purchases will ever be necessary to play and enjoy the game. You will be able to disable ads forever through a microtransaction."/>
-      </div>
-    </div>
-
-    <div class="w-full flex flex-col items-center justify-center py-16 space-y-8 px-4 lg:px-0">
-      <h1 class="uppercase font-bold font-work text-4xl md:text-5xl title text-[#1F1F1F] w-full lg:w-1/3 text-center">Join the development journey</h1>
-      <p class="text-[#4D4D4D] w-full lg:w-1/3 text-center">
-        Be part of something special from the ground up. Follow our development updates, share your ideas, and help shape the future of the game. Join our growing community today!
-      </p>
-      <div class="inline-flex items-center space-x-2">
-        <DiscordButton href="https://discord.gg/hwDFc2S94Y"/>
-      </div>
-    </div>
-
-    <Footer />
+      ))}
+    </dl>
+  </section>
 </Base>
-
-<script>
-  // Drag the screenshot strip with the mouse; touch devices scroll it natively
-  const strip = document.getElementById('screenshots')!;
-  let lastX = 0;
-
-  const onMouseMove = (e: MouseEvent) => {
-    e.preventDefault();
-    strip.style.pointerEvents = 'none';
-    strip.scrollBy(lastX - e.pageX, 0);
-    lastX = e.pageX;
-  };
-
-  const onMouseUp = () => {
-    strip.style.removeProperty('scroll-behavior');
-    strip.style.removeProperty('scroll-snap-type');
-    strip.style.removeProperty('pointer-events');
-    window.removeEventListener('mousemove', onMouseMove);
-    window.removeEventListener('mouseup', onMouseUp);
-  };
-
-  strip.addEventListener('mousedown', (e) => {
-    strip.style.scrollSnapType = 'none';
-    strip.style.scrollBehavior = 'auto';
-    lastX = e.pageX;
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('mouseup', onMouseUp);
-  });
-</script>

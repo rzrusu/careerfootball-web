@@ -3,15 +3,16 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
-// Post images fill the 2xl article column; the first one is above the fold
-function rehypeArticleImages() {
+// Post images fill the article column; a paragraph holding only a link becomes a card
+function rehypeArticle() {
   return (tree) => {
-    let first = true;
     const walk = (node) => {
       if (node.tagName === 'img') {
-        node.properties.sizes = '(min-width: 672px) 640px, calc(100vw - 2rem)';
-        if (first) node.properties.loading = 'eager';
-        first = false;
+        node.properties.sizes = '(min-width: 752px) 720px, calc(100vw - 2rem)';
+      }
+      if (node.tagName === 'p') {
+        const children = node.children.filter((child) => child.type !== 'text' || child.value.trim());
+        if (children.length === 1 && children[0].tagName === 'a') node.properties.className = ['link-card'];
       }
       node.children?.forEach(walk);
     };
@@ -20,15 +21,15 @@ function rehypeArticleImages() {
 }
 
 export default defineConfig({
-  site: 'https://footballcareer.app',
+  site: 'https://profootballerlife.com',
   integrations: [mdx()],
   image: {
-    // Gives images in blog posts a srcset; their styling comes from Prose.astro
+    // Gives images in blog posts a srcset; their styling comes from .article in global.css
     layout: 'constrained',
     responsiveStyles: false,
   },
   markdown: {
     smartypants: false,
-    rehypePlugins: [[rehypeAutolinkHeadings, { behavior: 'wrap' }], rehypeArticleImages],
+    rehypePlugins: [[rehypeAutolinkHeadings, { behavior: 'wrap' }], rehypeArticle],
   },
 });

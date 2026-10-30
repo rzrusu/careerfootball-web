@@ -1,32 +1,36 @@
 ---
+import { Image } from 'astro:assets';
+import Button from './Button.astro';
 import SocialLinks from './SocialLinks.astro';
+import logo from '../assets/site/logo.webp';
+import { DISCORD_URL } from '../consts';
+
+const links = [
+  { href: '/blog', label: 'Blog' },
+  { href: '/press-kit', label: 'Press Kit' },
+  { href: '/privacy-policy', label: 'Privacy Policy' },
+  { href: '/terms-of-service', label: 'Terms of Service' },
+];
 ---
 
-<footer class="w-full border-t border-gray-200 py-8 flex flex-col items-center justify-center space-y-4 mt-16">
-  <div class="max-w-7xl mx-auto py-8 px-4 lg:px-16 2xl:px-0">
-    <div class="flex flex-col items-center justify-center space-y-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-        <div class="flex flex-col items-center justify-center space-y-4 text-gray-600">
-          <p class="text-lg font-bold">CONTACT</p>
-          <p class="text-sm text-gray-500">hello@footballcareer.app</p>
-        </div>
-        <div class="flex flex-col items-center justify-center space-y-4 text-gray-600">
-          <p class="text-lg font-bold">CONNECT</p>
-          <SocialLinks class="flex justify-between space-x-6 media text-gray-500" />
-        </div>
+<footer class="bg-[#0b0b10] px-4 pt-12 lg:pt-16 pb-9 lg:pb-12">
+  <div class="max-w-[1200px] mx-auto flex flex-col lg:flex-row items-center lg:justify-between gap-5 lg:gap-8">
+    <div class="flex flex-col lg:flex-row items-center gap-5 lg:gap-7 text-center lg:text-left">
+      <Image src={logo} alt="" widths={[230, 280, 460, 560]} sizes="(min-width: 1024px) 280px, 230px" class="w-[230px] lg:w-[280px] h-auto" />
+      <div>
+        <p class="text-2xl lg:text-[32px] font-black text-white">Follow the Development</p>
+        <p class="mt-1 text-[15px] lg:text-[17px] font-medium text-[#a6a9b2]">Share your ideas and hear about the beta first.</p>
       </div>
     </div>
+    <Button href={DISCORD_URL}>Join Discord</Button>
   </div>
-  <a href="/privacy-policy" class="text-sm text-gray-500 w-fit">Privacy Policy</a>
-  <p class="text-center text-sm text-gray-400">© 2025 Football Career. All rights reserved.</p>
+  <div class="max-w-[1200px] mx-auto h-px bg-white/10 my-[18px] lg:my-5"></div>
+  <div class="flex flex-col items-center gap-[18px] lg:gap-5 text-center">
+    <ul class="flex flex-wrap justify-center gap-x-[18px] lg:gap-x-8 gap-y-2">
+      {links.map((link) => <li><a href={link.href} class="text-[13px] lg:text-[15px] font-bold text-white hover:underline">{link.label}</a></li>)}
+    </ul>
+    <SocialLinks class="flex items-center gap-5 text-white" />
+    <p class="text-[13px] lg:text-[15px] font-medium text-[#a6a9b2]">profootballerlife@gmail.com</p>
+    <p class="max-w-[760px] text-xs lg:text-[13px] font-medium text-[#7c7f88] leading-[1.4]">© 2026 Assemble Games. Not affiliated with, endorsed by or licensed by any club, league or competition.</p>
+  </div>
 </footer>
-
-<style is:global>
-  footer .media li {
-    @apply px-2;
-  }
-
-  footer .media a {
-    @apply text-black font-semibold hover:text-gray-800 transition;
-  }
-</style>

@@ -1,43 +1,15 @@
 @font-face {
   font-family: 'Chivo';
-  font-weight: 400;
+  font-weight: 100 900;
   font-display: swap;
-  src: url('/fonts/chivo-400-vietnamese.woff2') format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-@font-face {
-  font-family: 'Chivo';
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/chivo-400-latin-ext.woff2') format('woff2');
+  src: url('/fonts/chivo-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
   font-family: 'Chivo';
-  font-weight: 400;
+  font-weight: 100 900;
   font-display: swap;
-  src: url('/fonts/chivo-400-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Work Sans';
-  font-weight: 900;
-  font-display: swap;
-  src: url('/fonts/work-sans-900-vietnamese.woff2') format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-@font-face {
-  font-family: 'Work Sans';
-  font-weight: 900;
-  font-display: swap;
-  src: url('/fonts/work-sans-900-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: 'Work Sans';
-  font-weight: 900;
-  font-display: swap;
-  src: url('/fonts/work-sans-900-latin.woff2') format('woff2');
+  src: url('/fonts/chivo-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -45,59 +17,310 @@
 @tailwind components;
 @tailwind utilities;
 
-.title {
-  line-height: 85%;
+html {
+  scroll-behavior: smooth;
 }
 
 .highlight {
   box-shadow: 0px 4px 0px 0px #E5E5E5;
 }
 
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* Stadium image under a navy shade; --shade sets the gradient */
+.stadium {
+  background:
+    var(--shade, linear-gradient(rgba(5, 23, 59, 0.72), rgba(5, 23, 59, 0.72))),
+    url(/backgrounds/stage.webp) center / cover no-repeat,
+    #0a1838;
 }
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  font-weight: 900;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
 }
 
-.uses_bg,
-.uses_light_bg {
-  background-size: 600vw 100em;
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-color: white;
+.btn:hover {
+  filter: brightness(1.06);
 }
 
-.uses_bg {
-  background-image: url(/backgrounds/ball-bg.webp);
+.btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 0 var(--edge);
 }
 
-.uses_light_bg {
-  background-image: url(/backgrounds/ball-bg-light.webp);
+.btn-primary {
+  --edge: #0e4fbf;
+  background: #1a6ff0;
+  color: #fff;
+  box-shadow: 0 5px 0 0 var(--edge);
+}
+
+.btn-secondary {
+  --edge: #d9d9d9;
+  background: #fff;
+  color: #1a1a1a;
+  box-shadow: 0 5px 0 0 var(--edge);
+}
+
+.btn-dark {
+  --edge: #000;
+  background: #16171c;
+  color: #fff;
+  box-shadow: 0 4px 0 0 var(--edge);
+}
+
+.phone {
+  background: #0e0f12;
+  border-radius: 13.8% / 6.5%;
+  padding: 2%;
+  box-shadow: 0 26px 52px rgba(0, 5, 26, 0.5);
+}
+
+.phone img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12.3% / 5.7%;
+}
+
+.float-card {
+  border-radius: 16px;
+  box-shadow: 0 16px 32px rgba(0, 5, 26, 0.3);
+}
+
+.rays {
+  position: absolute;
+  pointer-events: none;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: repeating-conic-gradient(var(--ray) 0 8deg, transparent 8deg 16deg);
+  -webkit-mask-image: radial-gradient(closest-side, #000 8%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 8%, transparent 100%);
+  filter: blur(var(--ray-blur, 4px));
+}
+
+.glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(70px);
+}
+
+.confetti {
+  position: absolute;
+  pointer-events: none;
+  width: 11px;
+  height: 6px;
+  border-radius: 1.5px;
+}
+
+.card-edge {
+  box-shadow: 0 6px 0 0 #dcdcdc;
+}
+
+.article {
+  color: #454a50;
+  font-weight: 500;
+  font-size: 1.0625rem;
+  line-height: 1.6;
 }
 
 @media (min-width: 768px) {
-  .uses_bg {
-    background-size: 200vw 100em;
-  }
-
-  .uses_light_bg {
-    background-size: 300vw 100em;
+  .article {
+    font-size: 1.1875rem;
   }
 }
 
-@media (min-width: 1536px) {
-  .uses_bg,
-  .uses_light_bg {
-    background-size: 130vw 120em;
+.article h2 {
+  margin: 3.25rem 0 0.875rem;
+  color: #1a1a1a;
+  font-size: 1.75rem;
+  font-weight: 900;
+  line-height: 1.1;
+  scroll-margin-top: 1.5rem;
+}
+
+.article > h2:first-child {
+  margin-top: 0;
+}
+
+.article h3 {
+  margin: 1.75rem 0 0.625rem;
+  color: #1a1a1a;
+  font-size: 1.3125rem;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+@media (min-width: 768px) {
+  .article h2 {
+    font-size: 2.25rem;
+  }
+
+  .article h3 {
+    font-size: 1.5rem;
   }
 }
 
-@media (min-width: 2000px) {
-  .uses_bg,
-  .uses_light_bg {
-    background-size: 100vw 120em;
+.article p {
+  margin-bottom: 1.125rem;
+}
+
+.article strong {
+  color: #1a1a1a;
+  font-weight: 900;
+}
+
+.article ul,
+.article ol {
+  margin-bottom: 1.125rem;
+  list-style: none;
+  counter-reset: step;
+}
+
+.article li {
+  position: relative;
+  margin-bottom: 0.75rem;
+  padding-left: 2.5rem;
+  counter-increment: step;
+}
+
+.article ul > li::before {
+  content: '';
+  position: absolute;
+  left: 0.5625rem;
+  top: 0.65em;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #1a6ff0;
+}
+
+.article ol > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #1a6ff0;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 900;
+}
+
+.article img {
+  width: 100%;
+  height: auto;
+  margin-top: 0.75rem;
+  border-radius: 18px;
+  box-shadow: 0 5px 0 0 #dadada;
+  cursor: zoom-in;
+}
+
+.article small {
+  display: block;
+  margin: 0.75rem 0 1.75rem;
+  color: #6b7075;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+.article .link-card {
+  margin: 0.25rem 0 1.5rem;
+}
+
+.article .link-card a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 18px;
+  background: #eaf2ff;
+  box-shadow: 0 4px 0 0 #c7dbfb;
+  color: #1558c0;
+  font-weight: 900;
+}
+
+.article .link-card a::after {
+  content: '→';
+  font-size: 1.375rem;
+}
+
+.toc a[aria-current='true'] {
+  color: #1a6ff0;
+  font-weight: 900;
+}
+
+@keyframes hover {
+  50% {
+    translate: 0 -14px;
+  }
+}
+
+@keyframes spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes breathe {
+  50% {
+    opacity: 0.55;
+    scale: 1.08;
+  }
+}
+
+@keyframes drift {
+  25% {
+    translate: 10px -16px;
+    rotate: 70deg;
+  }
+  50% {
+    translate: -6px -30px;
+    rotate: 150deg;
+  }
+  75% {
+    translate: -12px -14px;
+    rotate: 230deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+.anim-hover {
+  animation: hover 6s ease-in-out infinite;
+}
+
+.anim-spin {
+  animation: spin 150s linear infinite;
+}
+
+.anim-breathe {
+  animation: breathe 9s ease-in-out infinite;
+}
+
+.anim-drift {
+  animation: drift 10s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .anim-hover,
+  .anim-spin,
+  .anim-breathe,
+  .anim-drift {
+    animation: none;
   }
 }

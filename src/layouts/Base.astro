@@ -1,41 +1,26 @@
 ---
 import '../styles/global.css';
-import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title: string;
+  fullTitle?: string;
   ogTitle?: string;
   description?: string;
   ogImage?: { src: string; type: string; width: number; height: number };
-  twitterTitle?: string;
-  twitterDescription?: string;
-  twitterCard?: 'summary' | 'summary_large_image';
-  bodyClass?: string;
-  preloadBackground?: string;
   noindex?: boolean;
 }
 
-const siteName = 'Football Career';
-const defaultOgImage = { src: '/og-image.png', type: 'image/png', width: 1280, height: 720 };
+const siteName = 'Pro Footballer Life';
+const defaultOgImage = { src: '/og-image.png', type: 'image/png', width: 1200, height: 630 };
 
-const {
-  title,
-  description,
-  ogImage = defaultOgImage,
-  twitterTitle,
-  twitterDescription,
-  twitterCard = 'summary_large_image',
-  bodyClass,
-  preloadBackground,
-  noindex = false,
-} = Astro.props;
+const { title, description, ogImage = defaultOgImage, noindex = false } = Astro.props;
 
-const fullTitle = `${title} | ${siteName}`;
+const fullTitle = Astro.props.fullTitle ?? `${title} | ${siteName}`;
 const ogTitle = Astro.props.ogTitle ?? fullTitle;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const canonical = new URL(path, Astro.site).href;
 const ogImageUrl = new URL(ogImage.src, Astro.site).href;
-const twitterImageUrl = new URL(defaultOgImage.src, Astro.site).href;
 ---
 
 <!doctype html>
@@ -49,9 +34,8 @@ const twitterImageUrl = new URL(defaultOgImage.src, Astro.site).href;
     {!noindex && <link rel="canonical" href={canonical} />}
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 
-    <link rel="preload" href="/fonts/chivo-400-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/work-sans-900-latin.woff2" as="font" type="font/woff2" crossorigin />
-    {preloadBackground && <link rel="preload" href={preloadBackground} as="image" type="image/webp" fetchpriority="high" />}
+    <link rel="preload" href="/fonts/chivo-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/backgrounds/stage.webp" as="image" type="image/webp" />
     <slot name="head" />
 
     <meta property="og:type" content="website" />
@@ -63,32 +47,16 @@ const twitterImageUrl = new URL(defaultOgImage.src, Astro.site).href;
     <meta property="og:image:type" content={ogImage.type} />
     <meta property="og:image:width" content={ogImage.width} />
     <meta property="og:image:height" content={ogImage.height} />
-    <meta name="twitter:card" content={twitterCard} />
-    {twitterTitle && <meta name="twitter:title" content={twitterTitle} />}
-    {twitterDescription && <meta name="twitter:description" content={twitterDescription} />}
-    <meta name="twitter:image" content={twitterImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={ogImageUrl} />
 
-    <script is:inline async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-54058BNVWR');
-      // Google Analytics is heavy, so it waits until the page has finished loading
-      addEventListener('load', function () {
-        (window.requestIdleCallback || setTimeout)(function () {
-          var s = document.createElement('script');
-          s.async = true;
-          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-54058BNVWR';
-          document.head.appendChild(s);
-        });
-      });
-    </script>
+    <!-- Cloudflare Web Analytics -->
+    <script is:inline type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "adc1ea569887461faeb32fb3c2d927bb"}'></script>
   </head>
-  <body class={bodyClass}>
-    <div class="w-full h-auto flex flex-col items-center">
-      <Nav />
-      <slot />
-    </div>
+  <body class="bg-white text-[#1a1a1a] antialiased overflow-x-hidden">
+    <slot />
+    <Footer />
   </body>
 </html>

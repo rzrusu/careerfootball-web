@@ -1,0 +1,21 @@
+---
+import Nav from './Nav.astro';
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  class?: string;
+}
+
+const { title, subtitle, class: className = 'pb-14 lg:pb-20' } = Astro.props;
+---
+
+<header class:list={['stadium px-4 pt-[38px] lg:pt-[58px]', className]}>
+  <Nav />
+  <div class="max-w-[1116px] mx-auto mt-14 lg:mt-[72px] flex flex-col items-center gap-3.5 lg:gap-5 text-center">
+    <slot name="before" />
+    <h1 class="text-[40px] lg:text-7xl font-black text-white leading-[1.02]">{title}</h1>
+    {subtitle && <p class="max-w-[820px] text-[17px] lg:text-[21px] font-medium text-[#d4dce9] leading-[1.45]">{subtitle}</p>}
+    <slot />
+  </div>
+</header>

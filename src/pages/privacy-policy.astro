@@ -1,98 +1,57 @@
 ---
 import Base from '../layouts/Base.astro';
 import Container from '../components/Container.astro';
+import PageHeader from '../components/PageHeader.astro';
 ---
 
 <Base title="Privacy Policy">
-  <div class="w-1/2 flex flex-col py-8 space-y-8 max-w-7xl">
-    <Container>
-      <h1 class="uppercase font-bold font-work text-5xl text-[#1F1F1F]">Privacy Policy</h1>
-      <p class="text-sm text-[#4D4D4D]">Last updated: 1st January 2025</p>
-    </Container>
+  <PageHeader title="Privacy Policy" subtitle="Last updated: 30th October 2026" />
+  <div class="w-full max-w-3xl mx-auto px-4 py-12 md:py-16 space-y-8">
     <Container>
       <div class="text-[#4D4D4D] space-y-6">
-        
-      <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">1. Information We Collect</h2>
-      <p>We collect information that you provide directly to us, including but not limited to name, email address, and any other information you choose to provide.</p>
-      
-      <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">2. How We Use Your Information</h2>
-      <p>We use the information we collect to:</p>
-      <ul class="list-disc ml-6 mt-2">
-        <li>Provide, maintain, and improve our services</li>
-        <li>Send you technical notices, updates, and administrative messages</li>
-        <li>Respond to your comments and questions</li>
-        <li>Protect against fraudulent or illegal activity</li>
-      </ul>
-      
-      <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">3. Data Security</h2>
-      <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
-      
-      <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">4. Cookies</h2>
-      <p>We use cookies and similar tracking technologies to track activity on our website and hold certain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.</p>
-      
-      <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">5. Third-Party Services</h2>
-      <p>We may employ third-party companies and individuals to facilitate our service, provide service on our behalf, perform service-related services, or assist us in analyzing how our service is used.</p>
-      
-      <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">6. Changes to This Privacy Policy</h2>
-      <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.</p>
-      
-      <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">7. Use of Google Analytics</h2>
-      <p>
-    We use Google Analytics to better understand how our users interact with 
-    our website. Google Analytics helps us analyze 
-    website traffic and usage patterns, enabling us to improve our services and 
-    provide a better experience for our users.
-  </p>
+        <p>This policy explains how Assemble Games handles information when you visit profootballerlife.com. It covers this website only, not the Pro Footballer Life game.</p>
 
-  <h3 class="text-xl font-semibold text-[#1F1F1F] mt-6">What Data Does Google Analytics Collect?</h3>
-  <p>Google Analytics collects information such as:</p>
-  <ul>
-    <li>Your IP address (anonymized for privacy).</li>
-    <li>Device type and browser information.</li>
-    <li>Pages you visit on our website or app.</li>
-    <li>Time spent on each page and general usage patterns.</li>
-    <li>Geographic location (general, not precise).</li>
-  </ul>
+        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">1. Information We Collect</h2>
+        <p>You can browse this website without creating an account or giving us your name or email address. We only receive:</p>
+        <ul class="list-disc ml-6 mt-2">
+          <li><strong>Messages you send us:</strong> if you email us, we receive your email address and whatever you include in your message.</li>
+          <li><strong>Analytics data:</strong> information about how the website is used, as described in section 3.</li>
+          <li><strong>Technical data:</strong> our hosting provider may process technical information such as your IP address so that it can deliver the website and keep it secure, as described in section 5.</li>
+        </ul>
 
-  <h3 class="text-xl font-semibold text-[#1F1F1F] mt-6">How Is Your Data Protected?</h3>
-  <p>
-    Google Analytics processes the collected data in compliance with the 
-    General Data Protection Regulation (GDPR) and other applicable laws. 
-    We have enabled IP anonymization in Google Analytics, which means your 
-    IP address is shortened to prevent identifying individual users.
-  </p>
+        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">2. How We Use Your Information</h2>
+        <p>We use this information to:</p>
+        <ul class="list-disc ml-6 mt-2">
+          <li>Reply to your messages</li>
+          <li>Understand how the website is used and improve it</li>
+          <li>Keep the website running and secure</li>
+        </ul>
+        <p>We do not sell your personal information, and we do not use it for advertising.</p>
 
-  <h3 class="text-xl font-semibold text-[#1F1F1F] mt-6">Can You Opt-Out of Google Analytics?</h3>
-  <p>
-    Yes, you can opt-out of Google Analytics tracking by:
-  </p>
-  <ul>
-    <li>
-      Installing the 
-      <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">
-        Google Analytics Opt-out Browser Add-on
-      </a>.
-    </li>
-    <li>
-      Adjusting your cookie preferences when prompted by our site.
-    </li>
-  </ul>
-  <p>
-    For more information about how Google handles collected data, please refer 
-    to the 
-    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">
-      Google Privacy Policy
-    </a>.
-  </p>
+        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">3. Website Analytics</h2>
+        <p>We use Cloudflare Web Analytics to understand how visitors use this website, such as which pages are viewed, the referring website, browser and device type, and general location. It does not use cookies to do this. For more information, please refer to the <a class="underline" href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare Privacy Policy</a>.</p>
 
-  <p>
-    If you have further questions about our use of Google Analytics or your data 
-    privacy, please contact us at 
-    <a href="mailto:assemblegames@yahoo.com">assemblegames@yahoo.com</a>.
-  </p>
-      
-      <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">8. Contact Us</h2>
-        <p>If you have any questions about this Privacy Policy, please contact us at assemblegames@yahoo.com</p>
+        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">4. Cookies</h2>
+        <p>This website does not set cookies.</p>
+
+        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">5. Third-Party Services</h2>
+        <p>This website is hosted on <a class="underline" href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Pages</a>, and its analytics are provided by Cloudflare. These providers handle data under their own privacy policies.</p>
+        <p>We also link to other services, including Discord, TikTok, YouTube, X and Trello. Those services have their own privacy policies, which apply once you follow a link to them.</p>
+
+        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">6. How Long We Keep Information</h2>
+        <p>We keep emails for as long as we need them to deal with your message and any follow-up, unless we have to keep them longer by law.</p>
+
+        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">7. Your Rights</h2>
+        <p>Depending on where you live, you may have the right to access, correct or delete the personal information we hold about you, or to object to how we use it. You may also have the right to complain to your local data protection authority. To make a request, please contact us using the address below.</p>
+
+        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">8. Children</h2>
+        <p>This website is not designed to collect personal information from children. If you believe a child has sent us personal information, please contact us and we will delete it.</p>
+
+        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">9. Changes to This Privacy Policy</h2>
+        <p>We may update this policy from time to time. We will post any changes on this page and update the "Last updated" date.</p>
+
+        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">10. Contact Us</h2>
+        <p>If you have any questions about this policy, please contact us at <a class="underline" href="mailto:profootballerlife@gmail.com">profootballerlife@gmail.com</a>.</p>
       </div>
     </Container>
   </div>

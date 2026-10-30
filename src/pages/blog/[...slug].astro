@@ -1,9 +1,11 @@
 ---
 import { getCollection, render } from 'astro:content';
-import { getImage } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
-import Footer from '../../components/Footer.astro';
-import Prose from '../../components/Prose.astro';
+import Button from '../../components/Button.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import PostCard from '../../components/PostCard.astro';
+import { DISCORD_URL } from '../../consts';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -11,9 +13,17 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
+const { title, description, date, author, type, image: cover } = post.data;
 
-const cover = post.data.image;
+const sections = headings.filter((heading) => heading.depth === 2);
+const minutes = Math.max(1, Math.round((post.body ?? '').split(/\s+/).length / 200));
+
+const others = (await getCollection('blog'))
+  .filter((other) => other.id !== post.id)
+  .sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date))
+  .slice(0, 2);
+
 const ogImage = cover && {
   src: (await getImage({ src: cover, format: 'jpeg', quality: 80 })).src,
   type: 'image/jpeg',
@@ -22,39 +32,64 @@ const ogImage = cover && {
 };
 ---
 
-<Base title={post.data.title} ogTitle={post.data.title} description={post.data.description} ogImage={ogImage} bodyClass="uses_light_bg" preloadBackground="/backgrounds/ball-bg-light.webp">
-  <main>
-    <div class="flex flex-col items-center justify-center">
-      <div class="max-w-2xl w-full px-4">
-        <div class="flex flex-col items-center justify-center space-y-4 py-12">
-          <div class="bg-[#85C003] rounded-full px-4 py-1">
-            <span class="text-white font-bold text-sm uppercase tracking-wide">{post.data.type}</span>
-          </div>
-          <div class="text-center">
-            <h1 class="text-5xl font-black font-work text-[#1F1F1F] mb-3">{post.data.title}</h1>
-          </div>
-          <div class="flex items-center space-x-2 text-[#4D4D4D]">
-            <span>{post.data.date}</span>
-            <span>·</span>
-            <span>By {post.data.author}</span>
-          </div>
+<Base {title} ogTitle={title} {description} {ogImage}>
+  <PageHeader {title} subtitle={description} class={cover ? 'pb-[110px] lg:pb-[206px]' : 'pb-14 lg:pb-20'}>
+    <Fragment slot="before">
+      <a href="/blog" class="text-sm lg:text-base font-bold text-[#c9d6ea] hover:text-white">← All News</a>
+      <span class="rounded-full bg-[#e4f4d7] px-3 py-[5px] text-xs font-extrabold uppercase tracking-[0.06em] text-[#2e7d0f]">{type}</span>
+    </Fragment>
+    <p class="text-[13px] lg:text-[15px] font-bold text-[#aebbd0]">
+      {date} · {minutes} min read<br class="lg:hidden" /><span class="hidden lg:inline"> · </span>By {author}
+    </p>
+  </PageHeader>
+
+  <main class="px-4">
+    {cover && (
+      <Image
+        src={cover}
+        alt=""
+        widths={[400, 720, 1116, 1280]}
+        sizes="(min-width: 1148px) 1116px, calc(100vw - 2rem)"
+        loading="eager"
+        class="relative w-full max-w-[1116px] h-auto mx-auto -mt-[70px] lg:-mt-[150px] rounded-2xl lg:rounded-3xl shadow-[0_18px_40px_rgba(0,8,36,.3)]"
+      />
+    )}
+    <div class="max-w-[1116px] mx-auto flex items-start gap-24 pt-9 lg:pt-16 pb-14 lg:pb-24">
+      <article class="article w-full max-w-[720px] min-w-0">
+        <Content />
+      </article>
+      <aside class="hidden lg:flex flex-col gap-6 w-[300px] shrink-0 sticky top-6">
+        {sections.length > 0 && (
+          <nav class="toc flex flex-col gap-3.5" aria-label="In this post">
+            <p class="text-xs font-extrabold uppercase tracking-[0.08em] text-[#6b7075]">In This Post</p>
+            {sections.map((section) => <a href={`#${section.slug}`} class="text-[15px] font-medium text-[#454a50] leading-[1.25] hover:text-[#1a6ff0]">{section.text}</a>)}
+          </nav>
+        )}
+        <div class="flex flex-col gap-2 rounded-[18px] bg-[#0a1838] p-5">
+          <p class="text-xl font-black text-white leading-[1.1]">Follow the Development</p>
+          <p class="mb-2 text-[15px] font-medium text-[#c4cfe2]">Hear about the beta first.</p>
+          <Button href={DISCORD_URL} class="px-4 py-3 text-[15px]">Join Discord</Button>
         </div>
-        <div class="flex flex-col items-center justify-center">
-          <Prose class="w-full">
-            <Content />
-          </Prose>
-        </div>
-      </div>
+      </aside>
     </div>
   </main>
 
-  <Footer />
+  {others.length > 0 && (
+    <section class="bg-[#f3f5f8] px-4 py-12 lg:py-20">
+      <div class="max-w-[1116px] mx-auto">
+        <h2 class="mb-5 lg:mb-8 text-[30px] lg:text-[44px] font-black">Keep Reading</h2>
+        <div class="grid lg:grid-cols-2 gap-4 lg:gap-6">
+          {others.map((other) => <PostCard post={other} layout="row" sizes="150px" />)}
+        </div>
+      </div>
+    </section>
+  )}
 </Base>
 
 <script>
   import mediumZoom from 'medium-zoom';
 
-  const images = document.querySelectorAll<HTMLImageElement>('.prose img:not([data-no-zoom])');
+  const images = document.querySelectorAll<HTMLImageElement>('.article img:not([data-no-zoom])');
 
   // Zoom to the largest size in the srcset rather than the one fitted to the column
   images.forEach((img) => {
@@ -63,4 +98,21 @@ const ogImage = cover && {
   });
 
   mediumZoom(images, { background: 'rgba(0,0,0,0.85)' });
+
+  // Highlight the section being read in the sidebar
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('.toc a')];
+  const headings = links.map((link) => document.getElementById(decodeURIComponent(link.hash.slice(1)))!);
+
+  const update = () => {
+    let current = 0;
+    headings.forEach((heading, i) => {
+      if (heading.getBoundingClientRect().top < window.innerHeight * 0.3) current = i;
+    });
+    links.forEach((link, i) => link.setAttribute('aria-current', String(i === current)));
+  };
+
+  if (links.length) {
+    update();
+    addEventListener('scroll', update, { passive: true });
+  }
 </script>

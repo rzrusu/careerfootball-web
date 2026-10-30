@@ -1,6 +1,6 @@
-# Football Career Website
+# Pro Footballer Life Website
 
-This website is live @ [footballcareer.app](https://footballcareer.app)
+This website is live @ [profootballerlife.com](https://profootballerlife.com)
 
 Built with [Astro](https://astro.build) and Tailwind CSS. It ships as static HTML, with a few small scripts for the interactive parts.
 

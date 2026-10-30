@@ -1,68 +1,36 @@
 ---
 import { Image } from 'astro:assets';
-import SocialLinks from './SocialLinks.astro';
-import logo from '../assets/logos/logo-big-min.png';
+import Button from './Button.astro';
+import logo from '../assets/site/logo.webp';
+import { DISCORD_URL } from '../consts';
 
 const links = [
-  { href: '/', label: 'Home' },
   { href: '/#features', label: 'Features' },
   { href: '/blog', label: 'Blog' },
-  { href: 'mailto:hello@footballcareer.app', label: 'Contact' },
+  { href: '/press-kit', label: 'Press' },
 ];
 ---
 
-<nav class="py-2 2xl:py-8 inline-flex items-center justify-between w-full max-w-7xl mx-auto">
-  <a href="/" aria-label="Football Career home">
-    <Image
-      src={logo}
-      alt="Logo"
-      widths={[251, 376, 502, 640]}
-      sizes="(min-width: 1536px) 376px, (min-width: 1280px) 334px, (min-width: 768px) 293px, 251px"
-      format="webp"
-      loading="eager"
-      class="h-24 md:h-28 xl:h-32 2xl:h-36 w-auto"
-    />
+<nav class="relative z-20 w-full max-w-[1200px] mx-auto bg-white rounded-[20px] flex items-center justify-end min-h-14 lg:min-h-[74px] px-[18px] lg:px-5 py-2">
+  <a href="/" aria-label="Pro Footballer Life home" class="absolute left-1.5 lg:left-[18px] top-1/2 -translate-y-1/2 w-[215px] lg:w-[330px]">
+    <Image src={logo} alt="Pro Footballer Life" widths={[215, 330, 430, 660]} sizes="(min-width: 1024px) 330px, 215px" loading="eager" fetchpriority="high" class="w-full h-auto" />
   </a>
-  <div class="lg:hidden">
-    <button type="button" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-      </svg>
-    </button>
+  <div class="hidden lg:flex items-center gap-8">
+    {links.map((link) => <a href={link.href} class="font-bold hover:text-[#1a6ff0] transition-colors">{link.label}</a>)}
+    <Button href={DISCORD_URL} class="px-[22px] py-3 text-[15px]">Join Discord</Button>
   </div>
-  <div class="bg-white rounded-full py-1 px-6 items-center highlight space-x-2 2xl:space-x-6 hidden lg:inline-flex">
-    <ul class="flex justify-between divide-x">
-      {links.map((link) => <li><a href={link.href} class="text-sm 2xl:text-base">{link.label}</a></li>)}
-    </ul>
-    <SocialLinks class="flex justify-between py-0 mt-4 sm:mt-0 md:py-4 px-6 media" />
+  <button type="button" id="nav-toggle" class="lg:hidden" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+    </svg>
+  </button>
+  <div id="mobile-nav" hidden class="absolute top-full inset-x-0 mt-3 bg-white rounded-[20px] p-5 shadow-xl lg:hidden">
+    <div class="flex flex-col gap-4">
+      {links.map((link) => <a href={link.href} class="font-bold text-lg">{link.label}</a>)}
+      <Button href={DISCORD_URL} class="px-6 py-3">Join Discord</Button>
+    </div>
   </div>
 </nav>
-<div id="mobile-nav" hidden>
-  <div class="bg-white rounded-full w-full py-6 md:py-2 px-6 items-center justify-center highlight space-x-2 2xl:space-x-6 flex flex-col sm:flex-row mb-16">
-    <ul class="flex justify-between divide-x">
-      {links.map((link) => <li><a href={link.href} class="text-sm 2xl:text-base">{link.label}</a></li>)}
-    </ul>
-    <SocialLinks class="flex justify-between py-0 mt-4 sm:mt-0 md:py-4 px-6 media" />
-  </div>
-</div>
-
-<style is:global>
-  nav a,
-  #mobile-nav a {
-    @apply text-black font-semibold hover:text-gray-800 transition;
-    text-decoration: none;
-  }
-
-  nav li,
-  #mobile-nav li {
-    @apply px-4;
-  }
-
-  nav .media li,
-  #mobile-nav .media li {
-    @apply px-2;
-  }
-</style>
 
 <script>
   const toggle = document.getElementById('nav-toggle')!;

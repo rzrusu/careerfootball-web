@@ -7,10 +7,7 @@ type: "Update"
 image: "../../assets/blog/september-monthly.png"
 ---
 
-![Fixture calendar (WIP)](../../assets/blog/september-monthly.png)
-
-
-## A quick, honest update
+## A Quick, Honest Update
 
 Progress on the game has been slower than planned over the past few months. We’ve had some personal life constraints and scheduling conflicts on the development side that impacted velocity. Thank you for your patience and continued support while we balance real life responsibilities with building something great.
 
@@ -22,7 +19,7 @@ This is the first post in our new Monthly Updates series. Every month we’ll sh
 
 We’ve launched a Trello page so you can follow progress at a glance: what’s in progress, what’s up next, and what’s shipped. We’ll keep it updated alongside these monthly posts.
 
-[View the public Trello board](https://trello.com/b/vUHhPEiJ/my-football-career)
+[View the Public Trello Board](https://trello.com/b/vUHhPEiJ/my-football-career)
 
 ## Reworking Core Systems
 
@@ -36,7 +33,7 @@ Over the last sprint we rebuilt several core systems to improve simulation fidel
 
 These changes also lay the groundwork for a more realistic transfer system, covered in the next section.
 
-## Transfer System Improvements (preview)
+## Transfer System Improvements
 
 We’ve built a deeper, more believable transfer market that models how clubs behave financially and strategically, then lets negotiations play out over time.
 
@@ -44,14 +41,14 @@ We’ve built a deeper, more believable transfer market that models how clubs be
 
 Every club now has a financial state (Bankrupt, Middling, Secure, Wealthy), a live transfer budget, a wage budget, and a transfer strategy. Strategies include directions like “buy stars,” “develop prospects,” “reinforce squad,” or “sell to survive.” These inputs drive how clubs act each window.
 
-### Window flow, at a glance
+### Window Flow, at a Glance
 
-1) Squad audit: At the start of a window, each club assesses strengths, gaps, and surpluses.
-2) Action plan: Based on finances and strategy, clubs decide whether to buy, loan, hold, or sell.
-3) Listing phase: Players are marked as transfer-listed, loan-listed, or held.
-4) Market matching: Clubs search targets that fit role, price, and wage models.
-5) Offers and counter-offers: Bids go back and forth with rejections, improved terms, add-ons, or clauses.
-6) Outcome: Deals close or collapse based on time, competition, and valuation drift.
+1. **Squad audit:** At the start of a window, each club assesses strengths, gaps, and surpluses.
+2. **Action plan:** Based on finances and strategy, clubs decide whether to buy, loan, hold, or sell.
+3. **Listing phase:** Players are marked as transfer-listed, loan-listed, or held.
+4. **Market matching:** Clubs search targets that fit role, price, and wage models.
+5. **Offers and counter-offers:** Bids go back and forth with rejections, improved terms, add-ons, or clauses.
+6. **Outcome:** Deals close or collapse based on time, competition, and valuation drift.
 
 Because we now simulate day by day, negotiations, medicals, paperwork, and deadline pressure evolve naturally across the window instead of jumping weekly.
 
@@ -82,7 +79,7 @@ Failing to meet minimum objectives may lead to negative consequences such as red
 ![Objectives (WIP)](../../assets/blog/objectives-feature@2x.png)
 <small>Season objectives help guide your development and influence club decisions, from minutes to contracts.</small>
 
-## Beta tester applications
+## Beta Tester Applications
 
 Applications for beta testers are set to open soon. Note that the beta itself won’t be live for a while. We’re first gathering a list of interested players so we can roll out invites in waves when the time comes. If you’re interested, keep an eye out; we’ll share sign-up details shortly.
 
