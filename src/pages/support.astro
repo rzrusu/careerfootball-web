@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import Container from '../components/Container.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const h2 = 'text-2xl font-semibold text-[#1F1F1F] mt-10';
+const h3 = 'text-xl font-semibold text-[#1F1F1F] mt-6';
+---
+
+<Base title="Support" description="Help for players of the Pro Footballer Life app on iOS and Android.">
+  <PageHeader title="Support" subtitle="Help for players of the Pro Footballer Life app." />
+  <div class="w-full max-w-3xl mx-auto px-4 py-12 md:py-16 space-y-8">
+    <Container>
+      <div class="text-[#4D4D4D] space-y-6">
+        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">Contact Us</h2>
+        <p>Email us at <a class="underline" href="mailto:rusuappsupport@gmail.com">rusuappsupport@gmail.com</a>. Please tell us which phone you use and which version of the game you have.</p>
+
+        <h2 class={h2}>Frequently Asked Questions</h2>
+
+        <h3 class={h3}>I Bought No Cooldowns on a New Phone</h3>
+        <p>Open the Store in the game and tap Restore Purchases. Make sure you're signed in with the same Apple ID or Google account you used to buy it.</p>
+
+        <h3 class={h3}>Refunds</h3>
+        <p>Purchases are handled by Apple or Google, so refunds go through them:</p>
+        <ul class="list-disc ml-6 mt-2">
+          <li>App Store: <a class="underline" href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a></li>
+          <li>Google Play: <a class="underline" href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener">Google Play refund help</a></li>
+        </ul>
+
+        <h3 class={h3}>Where Is My Save?</h3>
+        <p>Your saves live only on your device. Uninstalling the app deletes them, and we don't keep a copy.</p>
+
+        <h3 class={h3}>Ads Won't Load</h3>
+        <p>Check your internet connection, or try again shortly.</p>
+
+        <h3 class={h3}>Change Ad Consent</h3>
+        <p>Open Settings in the game to review or change your ad consent.</p>
+
+        <h2 class={h2}>Policies</h2>
+        <p>Read our <a class="underline" href="/privacy-policy">Privacy Policy</a> and <a class="underline" href="/terms">Terms of Use</a>.</p>
+      </div>
+    </Container>
+  </div>
+</Base>

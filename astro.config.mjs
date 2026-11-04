@@ -23,6 +23,9 @@ function rehypeArticle() {
 export default defineConfig({
   site: 'https://profootballerlife.com',
   integrations: [mdx()],
+  redirects: {
+    '/terms-of-service': '/terms',
+  },
   image: {
     // Gives images in blog posts a srcset; their styling comes from .article in global.css
     layout: 'constrained',

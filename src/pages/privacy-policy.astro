@@ -2,56 +2,168 @@
 import Base from '../layouts/Base.astro';
 import Container from '../components/Container.astro';
 import PageHeader from '../components/PageHeader.astro';
+
+const h2 = 'text-2xl font-semibold text-[#1F1F1F] mt-10';
+const h3 = 'text-xl font-semibold text-[#1F1F1F] mt-6';
+const th = 'text-left font-semibold text-[#1F1F1F] p-2 border-b border-[#D9D9D9] align-top';
+const td = 'p-2 border-b border-[#EDEDED] align-top';
 ---
 
 <Base title="Privacy Policy">
-  <PageHeader title="Privacy Policy" subtitle="Last updated: 30th October 2026" />
+  <PageHeader title="Privacy Policy" subtitle="Last updated: 4th November 2026" />
   <div class="w-full max-w-3xl mx-auto px-4 py-12 md:py-16 space-y-8">
     <Container>
       <div class="text-[#4D4D4D] space-y-6">
-        <p>This policy explains how Assemble Games handles information when you visit profootballerlife.com. It covers this website only, not the Pro Footballer Life game.</p>
+        <p>This policy explains how Assemble Games handles information when you visit profootballerlife.com (the website) and when you play Pro Footballer Life on iOS or Android (the app). The website and the app are covered in separate sections, so each can be read on its own.</p>
 
-        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">1. Information We Collect</h2>
+        <h2 class={h2}>Who We Are</h2>
+        <p>Assemble Games is operated by Rusu Răzvan-Iulian PFA (Persoană Fizică Autorizată), Bd. Bucureștii Noi 136, ground floor, apt. 5, Sector 1, Bucharest, Romania (CUI 54567552, Trade Register no. F2026022418007). We are the data controller for the information described in this policy.</p>
+        <p>You can contact us about anything in this policy at <a class="underline" href="mailto:rusuappsupport@gmail.com">rusuappsupport@gmail.com</a>.</p>
+
+        <h2 class={h2}>The Website</h2>
+
+        <h3 class={h3}>Information We Collect</h3>
         <p>You can browse this website without creating an account or giving us your name or email address. We only receive:</p>
         <ul class="list-disc ml-6 mt-2">
           <li><strong>Messages you send us:</strong> if you email us, we receive your email address and whatever you include in your message.</li>
-          <li><strong>Analytics data:</strong> information about how the website is used, as described in section 3.</li>
-          <li><strong>Technical data:</strong> our hosting provider may process technical information such as your IP address so that it can deliver the website and keep it secure, as described in section 5.</li>
+          <li><strong>Analytics data:</strong> information about how the website is used, as described under Website Analytics.</li>
+          <li><strong>Technical data:</strong> our hosting provider may process technical information such as your IP address so that it can deliver the website and keep it secure, as described under Third-Party Services.</li>
         </ul>
 
-        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">2. How We Use Your Information</h2>
+        <h3 class={h3}>How We Use Your Information</h3>
         <p>We use this information to:</p>
         <ul class="list-disc ml-6 mt-2">
           <li>Reply to your messages</li>
           <li>Understand how the website is used and improve it</li>
           <li>Keep the website running and secure</li>
         </ul>
-        <p>We do not sell your personal information, and we do not use it for advertising.</p>
+        <p>We do this on the basis of our legitimate interest in answering messages and running a secure, useful website. We do not sell your personal information, and we do not use website data for advertising.</p>
 
-        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">3. Website Analytics</h2>
+        <h3 class={h3}>Website Analytics</h3>
         <p>We use Cloudflare Web Analytics to understand how visitors use this website, such as which pages are viewed, the referring website, browser and device type, and general location. It does not use cookies to do this. For more information, please refer to the <a class="underline" href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare Privacy Policy</a>.</p>
 
-        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">4. Cookies</h2>
+        <h3 class={h3}>Cookies</h3>
         <p>This website does not set cookies.</p>
 
-        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">5. Third-Party Services</h2>
-        <p>This website is hosted on <a class="underline" href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Pages</a>, and its analytics are provided by Cloudflare. These providers handle data under their own privacy policies.</p>
+        <h3 class={h3}>Third-Party Services</h3>
+        <p>This website is hosted on <a class="underline" href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Pages</a>, and its analytics are provided by Cloudflare. These providers handle data under their own privacy policies and may process it in the USA under the EU–US Data Privacy Framework and/or Standard Contractual Clauses.</p>
         <p>We also link to other services, including Discord, TikTok, YouTube, X and Trello. Those services have their own privacy policies, which apply once you follow a link to them.</p>
 
-        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">6. How Long We Keep Information</h2>
+        <h3 class={h3}>How Long We Keep Information</h3>
         <p>We keep emails for as long as we need them to deal with your message and any follow-up, unless we have to keep them longer by law.</p>
 
-        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">7. Your Rights</h2>
-        <p>Depending on where you live, you may have the right to access, correct or delete the personal information we hold about you, or to object to how we use it. You may also have the right to complain to your local data protection authority. To make a request, please contact us using the address below.</p>
+        <h3 class={h3}>Your Rights</h3>
+        <p>You have the right to access, correct or delete the personal information we hold about you, and to object to how we use it. To make a request, email us at <a class="underline" href="mailto:rusuappsupport@gmail.com">rusuappsupport@gmail.com</a>. You can also complain to Romania's data protection authority, <a class="underline" href="https://www.dataprotection.ro" target="_blank" rel="noopener">ANSPDCP</a>, or to the authority where you live.</p>
 
-        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">8. Children</h2>
+        <h3 class={h3}>Children</h3>
         <p>This website is not designed to collect personal information from children. If you believe a child has sent us personal information, please contact us and we will delete it.</p>
 
-        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">9. Changes to This Privacy Policy</h2>
-        <p>We may update this policy from time to time. We will post any changes on this page and update the "Last updated" date.</p>
+        <h2 class={h2}>The Pro Footballer Life App</h2>
+        <p>This section covers the Pro Footballer Life app on iOS and Android.</p>
 
-        <h2 class="text-2xl font-semibold text-[#1F1F1F] mt-6">10. Contact Us</h2>
-        <p>If you have any questions about this policy, please contact us at <a class="underline" href="mailto:profootballerlife@gmail.com">profootballerlife@gmail.com</a>.</p>
+        <h3 class={h3}>What Stays on Your Device</h3>
+        <ul class="list-disc ml-6 mt-2">
+          <li><strong>No accounts:</strong> there are no accounts, logins or sign-ups. The game doesn't ask for your name, email address or phone number.</li>
+          <li><strong>Saves and settings:</strong> your career saves, settings and progress are stored only on your device, in a local database. They are never uploaded to us. Uninstalling the app deletes them.</li>
+          <li><strong>Data packs:</strong> you can import a file from your own device to change names and logos. The file is read on your device and never uploaded.</li>
+          <li><strong>Notifications:</strong> the game can show a local reminder when a season wait ends. It is scheduled on your device; no push server is used.</li>
+        </ul>
+
+        <h3 class={h3}>What Third-Party Services Collect</h3>
+        <p>The app uses the services below. Most of this data is linked to random device or app identifiers rather than to your name.</p>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr>
+                <th class={th} scope="col">Provider</th>
+                <th class={th} scope="col">What it collects</th>
+                <th class={th} scope="col">Why</th>
+                <th class={th} scope="col">Privacy policy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class={td}>Google AdMob (Google Mobile Ads SDK)</td>
+                <td class={td}>Advertising ID (IDFA/AAID), IP address and approximate location, device and app information, ad interaction data</td>
+                <td class={td}>Showing rewarded ads, ad measurement, fraud prevention</td>
+                <td class={td}><a class="underline" href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Google</a></td>
+              </tr>
+              <tr>
+                <td class={td}>RevenueCat (RevenueCat, Inc.)</td>
+                <td class={td}>Anonymous app user ID, purchase and transaction history, device platform and OS, app version, IP address, country and locale</td>
+                <td class={td}>Checking and restoring purchases</td>
+                <td class={td}><a class="underline" href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat</a></td>
+              </tr>
+              <tr>
+                <td class={td}>Firebase Crashlytics (Google)</td>
+                <td class={td}>Crash stack traces, device model, OS version, app version, Firebase installation ID, the state of the app at the time of the crash</td>
+                <td class={td}>Fixing bugs only</td>
+                <td class={td}><a class="underline" href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase</a></td>
+              </tr>
+              <tr>
+                <td class={td}>Google Analytics for Firebase (Google)</td>
+                <td class={td}>App opens, screens and in-game events, session length, device and OS, app version, approximate location (country or region), Firebase app instance ID, and on Android the advertising ID if you allow it</td>
+                <td class={td}>Understanding how the game is played and improving it</td>
+                <td class={td}><a class="underline" href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class={h3}>Ads and Your Consent</h3>
+        <p>The app shows only rewarded ads, which you choose to watch to skip a wait. There are no banner or interstitial ads.</p>
+        <ul class="list-disc ml-6 mt-2">
+          <li>In the EEA, the UK and Switzerland, the app asks for your consent through Google's User Messaging Platform before personalised ads are shown. In US states with privacy laws, it shows the matching privacy message.</li>
+          <li>On iOS, Apple's App Tracking Transparency prompt asks before your advertising ID is used for tracking.</li>
+          <li>You can change your ad consent at any time in the game's Settings.</li>
+        </ul>
+
+        <h3 class={h3}>In-App Purchases</h3>
+        <p>The app offers a one-off "No Cooldowns" pack and may offer Skill XP packs in future. Payment is handled entirely by Apple (App Store) or Google (Google Play) under their own privacy policies. We never see your card details. RevenueCat checks and restores purchases using the data listed above.</p>
+
+        <h3 class={h3}>Legal Bases</h3>
+        <ul class="list-disc ml-6 mt-2">
+          <li><strong>Consent:</strong> personalised ads and use of the advertising ID, including by Google Analytics for Firebase on Android.</li>
+          <li><strong>Legitimate interest:</strong> crash reports, basic analytics, non-personalised ads and fraud prevention. Our interest is keeping the game working, improving it and keeping ads free of fraud.</li>
+          <li><strong>Contract:</strong> checking, delivering and restoring your purchases.</li>
+        </ul>
+
+        <h3 class={h3}>Who We Share Data With</h3>
+        <p>We do not sell personal data. App data is shared only with the providers listed above. They act as our processors, or as independent controllers where Google's advertising terms say so.</p>
+
+        <h3 class={h3}>International Transfers</h3>
+        <p>Google and RevenueCat process data in the USA. These transfers are covered by the EU–US Data Privacy Framework and/or Standard Contractual Clauses.</p>
+
+        <h3 class={h3}>How Long We Keep Data</h3>
+        <ul class="list-disc ml-6 mt-2">
+          <li><strong>Saves, settings and data packs:</strong> on your device until you uninstall the app.</li>
+          <li><strong>Crash reports (Crashlytics):</strong> about 90 days.</li>
+          <li><strong>Analytics (Google Analytics for Firebase):</strong> 14 months.</li>
+          <li><strong>Purchase records:</strong> as long as Apple, Google and RevenueCat need them for the purchase and for tax records.</li>
+          <li><strong>Ad data (AdMob):</strong> according to Google's policy.</li>
+        </ul>
+
+        <h3 class={h3}>Your Rights and Choices</h3>
+        <p>You have the right to access, correct or delete your personal data, to object to processing based on legitimate interest, and to withdraw consent at any time. Withdrawing consent does not affect processing that happened before.</p>
+        <p>Most app data is linked to anonymous device IDs rather than to you as a person, so we usually cannot look it up by name. You can still email us at <a class="underline" href="mailto:rusuappsupport@gmail.com">rusuappsupport@gmail.com</a> with any request, and we will help where we can. You can also:</p>
+        <ul class="list-disc ml-6 mt-2">
+          <li><strong>Delete app data:</strong> uninstall the app.</li>
+          <li><strong>Reset or limit the advertising ID:</strong> use your phone's settings (on Android, Settings &gt; Google &gt; Ads; on iPhone, Settings &gt; Privacy &amp; Security &gt; Tracking).</li>
+          <li><strong>Change ad consent:</strong> use the game's Settings.</li>
+        </ul>
+        <p>If you are unhappy with how we handle your data, you can complain to Romania's data protection authority, <a class="underline" href="https://www.dataprotection.ro" target="_blank" rel="noopener">ANSPDCP</a>, or to the authority where you live.</p>
+
+        <h3 class={h3}>Children</h3>
+        <p>The app is not directed at children under 13, and we do not knowingly collect personal data from them. If you believe a child under 13 has used the app and their data has been collected, please contact us and we will take steps to delete it.</p>
+
+        <h3 class={h3}>US State Privacy Rights</h3>
+        <p>If you live in California or another US state with a privacy law, you have the right to know about, correct and delete your personal information, and to opt out of its sale or sharing. We do not sell personal information, and we do not share it for cross-context behavioural advertising beyond what you allow in the ad consent message. To opt out, change your choice in the game's Settings, turn off or delete the advertising ID in your phone's settings, or email us.</p>
+
+        <h2 class={h2}>Changes to This Policy</h2>
+        <p>We may update this policy from time to time. We will post any changes on this page and update the "Last updated" date. If a change significantly affects how the app uses your data, we will also mention it in the app or in its update notes, and ask for your consent again where the law requires it.</p>
+
+        <h2 class={h2}>Contact Us</h2>
+        <p>If you have any questions about this policy, please contact us at <a class="underline" href="mailto:rusuappsupport@gmail.com">rusuappsupport@gmail.com</a> or write to Rusu Răzvan-Iulian PFA, Bd. Bucureștii Noi 136, ground floor, apt. 5, Sector 1, Bucharest, Romania.</p>
       </div>
     </Container>
   </div>
