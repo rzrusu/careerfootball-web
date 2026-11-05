@@ -328,12 +328,3 @@ html {
 .faq summary::-webkit-details-marker {
   display: none;
 }
-
-/* Platform question only shows once someone opts in to testing */
-#signup-platform {
-  display: none;
-}
-
-#signup-form:has(input[name='fields[beta_tester]']:checked) #signup-platform {
-  display: flex;
-}
