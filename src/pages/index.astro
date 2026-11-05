@@ -68,13 +68,15 @@ const confetti = [
   ['24%', '59%', '#8ce000', 130], ['23%', '61%', '#ffd23f', 100], ['92%', '-1%', '#ff7a1a', 160],
 ];
 
-const facts = [
-  ['Release Date', 'Not Yet', "Too early to call. We'll announce it on Discord.", '#1a6ff0'],
-  ['Price', 'Free', 'The core game will always be free to play.', '#2e8a0e'],
-  ['Purchases', 'Optional', 'Never needed to enjoy the full base game.', '#e8590c'],
-  ['Ads', 'Removable', 'A one-off purchase turns them off for good.', '#b8254f'],
-  ['Internet', 'Not Needed', 'Only for optional extras like leaderboards.', '#7a2be2'],
-  ['Language', 'English First', 'More to come if there is demand.', '#0f6f68'],
+const faqs = [
+  ['When does the game come out?', "We're planning to release in the first quarter of 2027. We'll announce the exact date by email and on Discord."],
+  ['Can I play it before launch?', "Hopefully! We'll invite players from our waitlist to test the game before release. Join it above to be in with a chance."],
+  ['Which devices can I play on?', "It's coming to iOS and Android."],
+  ['How much does it cost?', 'Nothing. The core game is free to play, and always will be.'],
+  ['Do I need to buy anything?', 'No. Purchases are optional and never needed to enjoy the full base game.'],
+  ['Are there ads?', 'Yes, but a one-off purchase turns them off for good.'],
+  ['Do I need an internet connection?', 'No. You only need one for optional extras like leaderboards.'],
+  ['Which languages will it support?', "The game will launch in several languages. We'll share the full list closer to release."],
 ];
 
 const heroSizes = '(min-width: 1024px) 312px, 200px';
@@ -93,7 +95,7 @@ const cardSizes = '(min-width: 1024px) 340px, 320px';
         <p class="text-[17px] lg:text-[21px] font-medium text-[#ccd4de] leading-[1.35] [text-shadow:0_1px_8px_rgba(5,23,59,.6)]">{description}</p>
         <div class="flex flex-col lg:flex-row gap-3.5 lg:gap-4">
           <Button href={DISCORD_URL}>Join Discord</Button>
-          <Button href="#features" variant="secondary">See How It Plays</Button>
+          <Button href="#signup" variant="secondary">Get Early Access</Button>
         </div>
         <dl class="flex items-center gap-[18px] lg:gap-8 pt-1.5 lg:pt-3 text-white">
           {stats.map(([n, l], i) => (
@@ -153,7 +155,7 @@ const cardSizes = '(min-width: 1024px) 340px, 320px';
       <div class="relative overflow-hidden rounded-3xl lg:rounded-[36px] aspect-[358/470] lg:aspect-[660/680] bg-gradient-to-br from-[#2a8bff] to-[#0a2e7a]" style="--ray: rgba(255, 255, 255, 0.28); --ray-blur: 0px;">
         <div class="rays w-[190%] left-1/2 top-[48%] -translate-x-1/2 -translate-y-1/2"></div>
         <Phone src={match} alt="A live match with minute by minute commentary" sizes="(min-width: 1024px) 320px, 200px" class="absolute w-[55%] lg:w-[48%] left-[3%] lg:left-[15%] top-[10%] rotate-[4deg]" />
-        <Image src={decision} alt="A match decision: shout for it and run, wait for a better opening, or drop back and defend" widths={[220, 300, 440, 636]} sizes="(min-width: 1024px) 292px, 200px" class="absolute w-[55%] lg:w-[44%] right-[3%] lg:right-[5%] top-[22%] -rotate-[4deg] h-auto drop-shadow-2xl" />
+        <Image src={decision} alt="A big moment in a match: aiming a shot and timing its power" widths={[220, 300, 440, 600, 948]} sizes="(min-width: 1024px) 300px, 200px" class="absolute w-[55%] lg:w-[45%] right-[3%] lg:right-[5%] top-[20%] -rotate-[4deg] h-auto rounded-[20px] lg:rounded-[22px] shadow-2xl" />
       </div>
     </div>
   </section>
@@ -299,16 +301,70 @@ const cardSizes = '(min-width: 1024px) 340px, 320px';
     </div>
   </section>
 
-  <section class="px-4 py-14 lg:py-24">
-    <h2 class="text-center text-[38px] lg:text-[56px] font-black mb-6 lg:mb-10">Good to Know</h2>
-    <dl class="max-w-[1200px] mx-auto grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-5">
-      {facts.map(([label, value, text, color]) => (
-        <div class="flex flex-col gap-[5px] lg:gap-2 rounded-[20px] bg-[#f5f5f5] px-3.5 lg:px-6 py-4 lg:py-6 shadow-[0_4px_0_0_#e2e2e2]">
-          <dt class="text-[10px] lg:text-xs font-extrabold uppercase tracking-[0.08em]" style={`color:${color}`}>{label}</dt>
-          <dd class="text-[22px] lg:text-[32px] font-black leading-tight">{value}</dd>
-          <dd class="text-[13px] lg:text-base font-medium text-[#55595e] leading-[1.35]">{text}</dd>
+  <section id="signup" class="bg-gradient-to-br from-[#2a8bff] to-[#0a2e7a] px-4 py-14 lg:py-24 scroll-mt-4">
+    <div class="max-w-[640px] mx-auto">
+      <div class="text-center flex flex-col gap-3.5 lg:gap-[18px]">
+        <p class="text-[13px] lg:text-[15px] font-extrabold uppercase tracking-[0.08em] text-[#ffd23f]">Early Access</p>
+        <h2 class="text-[38px] lg:text-[56px] font-black text-white leading-[1.02]">Play It Before Anyone Else</h2>
+        <p class="text-[17px] lg:text-xl font-medium text-[#d6e4fb] leading-[1.45]">Join the waitlist to test the game before it comes out. We'll invite players in to try early versions, and what you tell us will shape the final game. You'll also hear the moment it launches.</p>
+      </div>
+      <form id="signup-form" action="https://app.kit.com/forms/10145967/subscriptions" method="post" class="mt-8 lg:mt-10 flex flex-col gap-4">
+        <div class="flex flex-col sm:flex-row gap-3">
+          <label for="signup-email" class="sr-only">Email address</label>
+          <input id="signup-email" name="email_address" type="email" required autocomplete="email" placeholder="Your email address" class="flex-1 min-w-0 rounded-2xl px-5 py-4 text-lg font-medium text-[#1a1a1a] placeholder:text-[#7c7f88] outline-none focus-visible:ring-4 focus-visible:ring-[#ffd23f]" />
+          <button type="submit" class="btn btn-secondary px-8 py-4 text-lg whitespace-nowrap disabled:opacity-70">Join the Waitlist</button>
         </div>
+        <label class="flex items-center gap-3 text-[15px] lg:text-[17px] font-bold text-white cursor-pointer">
+          <input type="checkbox" name="fields[beta_tester]" value="yes" checked class="w-5 h-5 shrink-0 accent-[#ffd23f]" />
+          I'd like to test the game before launch
+        </label>
+        <div id="signup-platform" role="radiogroup" aria-labelledby="signup-platform-label" class="flex-wrap items-center gap-x-5 gap-y-2 text-[15px] lg:text-[17px] font-bold text-white">
+          <span id="signup-platform-label">Which phone do you use?</span>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="fields[platform]" value="ios" class="w-5 h-5 accent-[#ffd23f]" /> iPhone</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="fields[platform]" value="android" class="w-5 h-5 accent-[#ffd23f]" /> Android</label>
+        </div>
+        <p class="text-[13px] lg:text-sm font-medium text-white/75 leading-[1.45]">We'll only email you about Pro Footballer Life, and you can unsubscribe at any time. See our <a href="/privacy-policy#mailing-list" class="underline">privacy policy</a>.</p>
+        <p id="signup-status" role="status" aria-live="polite" class="empty:hidden rounded-2xl bg-white/15 px-5 py-4 font-bold text-white"></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="px-4 py-14 lg:py-24">
+    <h2 class="text-center text-[38px] lg:text-[56px] font-black mb-6 lg:mb-10">FAQ</h2>
+    <div class="max-w-[800px] mx-auto flex flex-col gap-3 lg:gap-4">
+      {faqs.map(([question, answer]) => (
+        <details class="faq group rounded-[20px] bg-[#f5f5f5] shadow-[0_4px_0_0_#e2e2e2]">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer list-none px-5 lg:px-7 py-4 lg:py-5 text-[17px] lg:text-xl font-black">
+            {question}
+            <svg class="w-5 h-5 shrink-0 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+          </summary>
+          <p class="px-5 lg:px-7 pb-5 lg:pb-6 -mt-1 text-[15px] lg:text-[17px] font-medium text-[#55595e] leading-[1.45]">{answer}</p>
+        </details>
       ))}
-    </dl>
+    </div>
   </section>
 </Base>
+
+<script>
+  // Posts to Kit in the background. Kit doesn't allow reading its response from
+  // another site, so any request that gets through counts as a success.
+  const form = document.getElementById('signup-form') as HTMLFormElement;
+  const status = document.getElementById('signup-status')!;
+  const button = form.querySelector('button')!;
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    button.disabled = true;
+    status.textContent = '';
+    try {
+      const body = new URLSearchParams(new FormData(form) as unknown as Record<string, string>);
+      await fetch(form.action, { method: 'POST', mode: 'no-cors', body });
+      form.reset();
+      status.textContent = "You're nearly on the list. Check your inbox and confirm your email address.";
+    } catch {
+      status.textContent = 'Something went wrong. Please try again, or email hello@profootballerlife.com.';
+    } finally {
+      button.disabled = false;
+    }
+  });
+</script>
