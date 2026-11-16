@@ -91,6 +91,12 @@ html {
   box-shadow: 0 16px 32px rgba(0, 5, 26, 0.3);
 }
 
+/* Cut-out cards and art from the store screenshots; the shadow follows their shape */
+.pop {
+  height: auto;
+  filter: drop-shadow(0 14px 22px rgba(0, 5, 26, 0.32));
+}
+
 .rays {
   position: absolute;
   pointer-events: none;
