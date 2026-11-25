@@ -10,7 +10,7 @@ const td = 'p-2 border-b border-[#EDEDED] align-top';
 ---
 
 <Base title="Privacy Policy">
-  <PageHeader title="Privacy Policy" subtitle="Last updated: 16th November 2026" />
+  <PageHeader title="Privacy Policy" subtitle="Last updated: 25th November 2026" />
   <div class="w-full max-w-3xl mx-auto px-4 py-12 md:py-16 space-y-8">
     <Container>
       <div class="text-[#4D4D4D] space-y-6">
@@ -51,7 +51,7 @@ const td = 'p-2 border-b border-[#EDEDED] align-top';
         <p>This website does not set cookies.</p>
 
         <h3 class={h3}>Third-Party Services</h3>
-        <p>This website is hosted on <a class="underline" href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Pages</a>, and its analytics are provided by Cloudflare. Our mailing list is run by Kit. These providers handle data under their own privacy policies and may process it in the USA under the EU–US Data Privacy Framework and/or Standard Contractual Clauses.</p>
+        <p>This website is hosted on <a class="underline" href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Pages</a>, and its analytics are provided by Cloudflare. Our mailing list is run by Kit, and emails you send us are received in <a class="underline" href="https://policies.google.com/privacy" target="_blank" rel="noopener">Gmail</a> (Google). These providers handle data under their own privacy policies and may process it in the USA under the EU–US Data Privacy Framework and/or Standard Contractual Clauses.</p>
         <p>We also link to other services, including Discord, TikTok, YouTube, X and Trello. Those services have their own privacy policies, which apply once you follow a link to them.</p>
 
         <h3 class={h3}>How Long We Keep Information</h3>
@@ -70,8 +70,9 @@ const td = 'p-2 border-b border-[#EDEDED] align-top';
         <h3 class={h3}>What Stays on Your Device</h3>
         <ul class="list-disc ml-6 mt-2">
           <li><strong>No accounts:</strong> there are no accounts, logins or sign-ups. The game doesn't ask for your name, email address or phone number.</li>
-          <li><strong>Saves and settings:</strong> your career saves, settings and progress are stored only on your device, in a local database. They are never uploaded to us. Uninstalling the app deletes them.</li>
-          <li><strong>Data packs:</strong> you can import a file from your own device to change names and logos. The file is read on your device and never uploaded.</li>        </ul>
+          <li><strong>Saves and settings:</strong> your career saves, settings and progress are stored only on your device, in a local database. They are never uploaded to us, unless you choose to send a copy of your career save in a problem report (see <a class="underline" href="#problem-reports">Problem Reports</a>). Uninstalling the app deletes them.</li>
+          <li><strong>Data packs:</strong> you can import a file from your own device to change names and logos. The file is read on your device and never uploaded.</li>
+        </ul>
 
         <h3 class={h3}>What Third-Party Services Collect</h3>
         <p>The app uses the services below. Most of this data is linked to random device or app identifiers rather than to your name.</p>
@@ -100,19 +101,52 @@ const td = 'p-2 border-b border-[#EDEDED] align-top';
               </tr>
               <tr>
                 <td class={td}>Firebase Crashlytics (Google)</td>
-                <td class={td}>Crash stack traces, device model, OS version, app version, Firebase installation ID, the state of the app at the time of the crash</td>
-                <td class={td}>Fixing bugs only</td>
+                <td class={td}>Technical details of crashes, errors and freezes, app version, device details (such as phone model, OS version and free memory), Firebase installation ID. Only if you allow Share Play Data: your career's season, in-game date, age, position, club and league, the current screen and your recent in-game actions</td>
+                <td class={td}>Fixing bugs only, for all players (see <a class="underline" href="#crash-reports">Crash and Freeze Reports</a>)</td>
                 <td class={td}><a class="underline" href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase</a></td>
               </tr>
               <tr>
                 <td class={td}>Google Analytics for Firebase (Google)</td>
                 <td class={td}>App opens, screens and in-game events, session length, device and OS, app version, approximate location (country or region), Firebase app instance ID, and on Android the advertising ID if you allow it</td>
-                <td class={td}>Understanding how the game is played and improving it</td>
+                <td class={td}>Understanding how the game is played and improving it, only if you allow Share Play Data (see <a class="underline" href="#share-play-data">Share Play Data</a>)</td>
                 <td class={td}><a class="underline" href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase</a></td>
+              </tr>
+              <tr>
+                <td class={td}>Gmail (Google)</td>
+                <td class={td}>Problem reports and support emails you choose to send us: your email address, your message and any attachment</td>
+                <td class={td}>Receiving your report or message and replying to you</td>
+                <td class={td}><a class="underline" href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google</a></td>
               </tr>
             </tbody>
           </table>
         </div>
+
+        <h3 id="crash-reports" class={h3}>Crash and Freeze Reports</h3>
+        <p>The app uses Firebase Crashlytics to report crashes and errors to us automatically, for all players. It also reports freezes, when the game stops responding for a few seconds. A crash report contains the technical details of the error, the game version, and device details collected by Crashlytics, such as phone model, operating system version and free memory.</p>
+        <p>If you chose Allow on "Share Play Data?" (or turned it on in Settings), crash reports also include your career's season, in-game date, age, position, club and league, the screen you were on, and a list of your recent in-game actions (screens visited, matches played, choices made in events and purchases started). If you chose No Thanks, or haven't answered yet, only the crash itself is sent.</p>
+        <p>Crash reports never include names, text you typed or money amounts.</p>
+
+        <h3 id="share-play-data" class={h3}>Share Play Data</h3>
+        <p>The game asks "Share Play Data?". Your answer controls two things:</p>
+        <ul class="list-disc ml-6 mt-2">
+          <li><strong>Game analytics:</strong> whether Google Analytics for Firebase collects the play data listed above.</li>
+          <li><strong>Crash report details:</strong> whether crash reports include the extra game details described under Crash and Freeze Reports.</li>
+        </ul>
+        <p>Both stay off if you choose No Thanks or haven't answered yet. You can change your choice at any time in Settings → Share Play Data, and the change takes effect immediately.</p>
+
+        <h3 id="problem-reports" class={h3}>Problem Reports</h3>
+        <p>You can send us a problem report from inside the game, from Menu → Report a Problem or About → Report a Problem. Nothing is sent unless you choose to send it.</p>
+        <p>The game opens your own email app (or your phone's share options) with a message to <a class="underline" href="mailto:hello@profootballerlife.com">hello@profootballerlife.com</a> and one zip file attached. You see the email before it is sent and can add your own description of the problem. The attachment contains:</p>
+        <ul class="list-disc ml-6 mt-2">
+          <li>a copy of your current career save: your in-game progress, including the name you gave your player and the career's in-game events;</li>
+          <li>the game version;</li>
+          <li>your phone model, operating system version, total memory and free storage space;</li>
+          <li>the career's season, in-game date, age, position, club and league;</li>
+          <li>the screen you were on;</li>
+          <li>a list of your last in-game actions (screens visited, matches played, choices made in events and purchases started) and any errors the game recorded.</li>
+        </ul>
+        <p>The report does not contain your phone's name, your contacts, your location, your advertising ID or anything outside the game. Because it arrives by email, we also receive your email address and whatever you write.</p>
+        <p>The email is sent by the email or sharing app you choose, under that provider's own privacy policy, and we receive it in Gmail. We use the report only to understand and fix the problem you reported, and to reply to you. We keep it until the problem is fixed, and for no more than 12 months. You can ask us to delete your report at any time by emailing <a class="underline" href="mailto:hello@profootballerlife.com">hello@profootballerlife.com</a>.</p>
 
         <h3 class={h3}>Ads and Your Consent</h3>
         <p>The app shows only rewarded ads, which you choose to watch for a small in-game boost, such as another chance in a match. There are no banner or interstitial ads.</p>
@@ -127,13 +161,13 @@ const td = 'p-2 border-b border-[#EDEDED] align-top';
 
         <h3 class={h3}>Legal Bases</h3>
         <ul class="list-disc ml-6 mt-2">
-          <li><strong>Consent:</strong> personalised ads and use of the advertising ID, including by Google Analytics for Firebase on Android.</li>
-          <li><strong>Legitimate interest:</strong> crash reports, basic analytics, non-personalised ads and fraud prevention. Our interest is keeping the game working, improving it and keeping ads free of fraud.</li>
+          <li><strong>Consent:</strong> personalised ads and use of the advertising ID, including by Google Analytics for Firebase on Android; game analytics and the extra game details in crash reports, which you allow through Share Play Data.</li>
+          <li><strong>Legitimate interest:</strong> crash and freeze reports, problem reports and support emails you send us, non-personalised ads and fraud prevention. Our interest is keeping the game working, fixing the problems you report, replying to you and keeping ads free of fraud.</li>
           <li><strong>Contract:</strong> checking, delivering and restoring your purchases.</li>
         </ul>
 
         <h3 class={h3}>Who We Share Data With</h3>
-        <p>We do not sell personal data. App data is shared only with the providers listed above. They act as our processors, or as independent controllers where Google's advertising terms say so.</p>
+        <p>We do not sell personal data. App data is shared only with the providers listed above, and problem reports you send also pass through the email or sharing app you choose. The providers listed above act as our processors, or as independent controllers where Google's advertising terms say so.</p>
 
         <h3 class={h3}>International Transfers</h3>
         <p>Google and RevenueCat process data in the USA. These transfers are covered by the EU–US Data Privacy Framework and/or Standard Contractual Clauses.</p>
@@ -141,7 +175,8 @@ const td = 'p-2 border-b border-[#EDEDED] align-top';
         <h3 class={h3}>How Long We Keep Data</h3>
         <ul class="list-disc ml-6 mt-2">
           <li><strong>Saves, settings and data packs:</strong> on your device until you uninstall the app.</li>
-          <li><strong>Crash reports (Crashlytics):</strong> about 90 days.</li>
+          <li><strong>Crash and freeze reports (Crashlytics):</strong> about 90 days.</li>
+          <li><strong>Problem reports:</strong> until the problem is fixed, and for no more than 12 months. You can ask us to delete yours at any time.</li>
           <li><strong>Analytics (Google Analytics for Firebase):</strong> 14 months.</li>
           <li><strong>Purchase records:</strong> as long as Apple, Google and RevenueCat need them for the purchase and for tax records.</li>
           <li><strong>Ad data (AdMob):</strong> according to Google's policy.</li>
@@ -154,6 +189,8 @@ const td = 'p-2 border-b border-[#EDEDED] align-top';
           <li><strong>Delete app data:</strong> uninstall the app.</li>
           <li><strong>Reset or limit the advertising ID:</strong> use your phone's settings (on Android, Settings &gt; Google &gt; Ads; on iPhone, Settings &gt; Privacy &amp; Security &gt; Tracking).</li>
           <li><strong>Change ad consent:</strong> use the game's Settings.</li>
+          <li><strong>Stop sharing play data:</strong> turn off Settings → Share Play Data.</li>
+          <li><strong>Delete a problem report:</strong> email us and we will delete it.</li>
         </ul>
         <p>If you are unhappy with how we handle your data, you can complain to Romania's data protection authority, <a class="underline" href="https://www.dataprotection.ro" target="_blank" rel="noopener">ANSPDCP</a>, or to the authority where you live.</p>
 
